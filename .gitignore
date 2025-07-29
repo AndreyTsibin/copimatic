@@ -66,3 +66,7 @@ build/
 
 # Tilda integration files (если будут созданы)
 tilda-export/
+
+# Claude Code configuration
+.claude/
+.mcp.json
