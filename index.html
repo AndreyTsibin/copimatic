@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт оргтехники любой сложности | Быстро и с гарантией</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1d4ed8;
+            --accent-orange: #ea580c;
+            --accent-orange-dark: #dc2626;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --success-green: #059669;
+            --warning-yellow: #d97706;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .container-custom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn-cta {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-cta:hover {
+            background-color: var(--accent-orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
+        }
+        
+        .card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .price {
+            color: var(--success-green);
+            font-weight: 700;
+        }
+        
+        /* Header styles */
+        header {
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero section gradient */
+        .bg-gradient-to-r {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container-custom">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-30 h-10 bg-gray-300 rounded flex items-center justify-center text-sm font-medium text-gray-600">
+                        ЛОГО
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#prices" class="text-gray-700 hover:text-blue-600 transition-colors">Цены</a>
+                    <a href="#guarantee" class="text-gray-700 hover:text-blue-600 transition-colors">Гарантия</a>
+                    <a href="#contacts" class="text-gray-700 hover:text-blue-600 transition-colors">Контакты</a>
+                </nav>
+                
+                <!-- Phone and CTA -->
+                <div class="flex items-center space-x-6">
+                    <div class="hidden lg:block text-right">
+                        <div class="text-lg font-semibold text-gray-900">+7 (495) 123-45-67</div>
+                        <div class="text-sm text-gray-500">Ежедневно с 7:00 до 23:00</div>
+                    </div>
+                    <a href="#forma" class="btn-cta">
+                        Заказать звонок
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <i class="ri-menu-line text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+                <div class="py-4 space-y-3">
+                    <a href="#prices" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Цены</a>
+                    <a href="#guarantee" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Гарантия</a>
+                    <a href="#contacts" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Контакты</a>
+                    <div class="px-4 py-2 border-t">
+                        <div class="text-lg font-semibold text-gray-900">+7 (495) 123-45-67</div>
+                        <div class="text-sm text-gray-500">Ежедневно с 7:00 до 23:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 lg:py-32">
+        <div class="container-custom">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Ремонт оргтехники любой сложности
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 opacity-90">
+                        Ремонт любых брендов по низким ценам с гарантией до 2-х лет
+                    </p>
+                    <a href="#forma" class="btn-cta text-lg px-8 py-4 inline-flex items-center">
+                        <i class="ri-tools-line mr-2"></i>
+                        Бесплатная диагностика
+                    </a>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="text-center">
+                    <div class="w-full max-w-md mx-auto h-75 bg-white bg-opacity-20 rounded-lg flex items-center justify-center text-lg font-medium backdrop-blur-sm">
+                        Изображение техника
+                        <br>
+                        400x300px
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
