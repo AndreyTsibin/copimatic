@@ -14,10 +14,15 @@ This is a high-conversion landing page for a printer/MFU/plotter repair service.
 
 ## Development Commands
 
-Since this is a static HTML/CSS/JS project designed for Tilda integration, there are no build commands or package scripts. Development is done by:
+Since this is a static HTML/CSS/JS project designed for Tilda integration, there are no build commands or package scripts. Development workflow:
 
 1. **Local Development:** Open `index.html` directly in browser
-2. **Tilda Integration:** 
+2. **Git Workflow:**
+   - Work in `developed` branch for all development
+   - Merge to `main` only for production-ready versions
+   - `git checkout developed` - switch to development branch
+   - `git push origin developed` - push development changes
+3. **Tilda Integration:** 
    - Copy `index.html` content → Tilda T123 "HTML-код" block
    - Copy `script.js` content → Tilda Site Settings → "HTML-код для вставки внутрь head"
 
@@ -162,3 +167,19 @@ The project uses static HTML files in the `data/` directory as data sources:
 - Copy `index.html` content → Tilda T123 "HTML-код" block  
 - Copy `script.js` content → Tilda Settings → "HTML-код для вставки внутрь head"
 - Test modal integration with existing `#forma` system
+
+### Critical Implementation Rules
+
+**Data Integration Priority:**
+When creating sections that require data (brands, issues, services), always check if corresponding HTML files exist in `data/` directory first. If they don't exist, create placeholder content and note that real data integration is pending.
+
+**Conversion-First Development:**
+- Every section must have clear conversion goal (CTA button)
+- All interactive elements should guide user towards `#forma` modal
+- Use psychological triggers: urgency (timers), social proof (brands), authority (guarantees)
+
+**Code Organization:**
+- Inline all CSS within `<style>` tags in `index.html` for Tilda compatibility
+- Keep JavaScript modular and well-commented in `script.js`
+- Follow naming convention: descriptive classes without `t-` or `tn-` prefixes
+- Test each component individually before integration
