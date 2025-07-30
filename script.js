@@ -22,26 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Sticky header behavior
+    // Sticky header behavior - header always stays fixed
     function initStickyHeader() {
         const header = document.querySelector('header');
         if (!header) return;
         
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop;
-        });
+        // Ensure header is always visible and fixed
+        header.style.transform = 'translateY(0)';
+        header.style.transition = 'none';
     }
     
     // Service tabs switching functionality
