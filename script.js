@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide all tab contents
         const tabContents = document.querySelectorAll('.tab-content');
         tabContents.forEach(content => {
-            content.classList.add('hidden');
+            content.classList.remove('active');
         });
         
         // Remove active class from all tabs
@@ -59,13 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Show selected tab content
-        const selectedContent = document.getElementById(tabName + '-content');
+        const selectedContent = document.getElementById('tab-' + tabName);
         if (selectedContent) {
-            selectedContent.classList.remove('hidden');
+            selectedContent.classList.add('active');
         }
         
-        // Add active class to selected tab
-        const selectedTab = document.querySelector(`[data-tab="${tabName}"]`);
+        // Add active class to selected tab button
+        const selectedTab = document.querySelector(`button[onclick*="${tabName}"]`);
         if (selectedTab) {
             selectedTab.classList.add('active');
         }
