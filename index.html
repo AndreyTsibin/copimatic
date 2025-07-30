@@ -121,6 +121,73 @@
             color: #6b7280;
             font-weight: 500;
         }
+        
+        /* Brand marquee styles */
+        .brand-marquee {
+            background-color: var(--bg-gray);
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .brand-scroll {
+            display: inline-block;
+            animation: scroll-left 30s linear infinite;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .brand-item {
+            display: inline-block;
+            width: 120px;
+            height: 60px;
+            background-color: #e5e7eb;
+            margin: 0 20px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        /* Issues grid styles */
+        .issue-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .issue-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .issue-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: white;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -256,6 +323,131 @@
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">Плоттеры</h3>
                         <p class="text-gray-600">Широкоформатные плоттеры для профессиональной печати</p>
                     </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Brand Marquee Section -->
+    <section class="brand-marquee">
+        <div class="brand-scroll">
+            <div class="brand-item">HP</div>
+            <div class="brand-item">Epson</div>
+            <div class="brand-item">Canon</div>
+            <div class="brand-item">Pantum</div>
+            <div class="brand-item">Kyocera</div>
+            <div class="brand-item">Brother</div>
+            <div class="brand-item">Xerox</div>
+            <div class="brand-item">Samsung</div>
+            <div class="brand-item">Oki</div>
+            <div class="brand-item">Panasonic</div>
+            <!-- Duplicate for smooth infinite scroll -->
+            <div class="brand-item">HP</div>
+            <div class="brand-item">Epson</div>
+            <div class="brand-item">Canon</div>
+            <div class="brand-item">Pantum</div>
+            <div class="brand-item">Kyocera</div>
+            <div class="brand-item">Brother</div>
+            <div class="brand-item">Xerox</div>
+            <div class="brand-item">Samsung</div>
+            <div class="brand-item">Oki</div>
+            <div class="brand-item">Panasonic</div>
+        </div>
+    </section>
+    
+    <!-- Issues Section -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="container-custom">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Частые неисправности
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Выберите вашу проблему и узнайте стоимость ремонта
+                </p>
+            </div>
+            
+            <!-- Issues Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-file-paper-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Застряла бумага</h3>
+                    <div class="price text-xl">от 550 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-volume-up-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Шумит</h3>
+                    <div class="price text-xl">от 500 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-file-damage-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Зажевывает бумагу</h3>
+                    <div class="price text-xl">от 550 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-file-copy-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Берет несколько листов</h3>
+                    <div class="price text-xl">от 600 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-file-forbid-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Не берет бумагу</h3>
+                    <div class="price text-xl">от 600 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-shut-down-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Не включается</h3>
+                    <div class="price text-xl">от 900 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-error-warning-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Выдает ошибку</h3>
+                    <div class="price text-xl">от 400 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-flashlight-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Мигают кнопки</h3>
+                    <div class="price text-xl">от 400 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-contrast-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Полосы при печати</h3>
+                    <div class="price text-xl">от 600 руб</div>
+                </a>
+                
+                <a href="#forma" class="issue-card">
+                    <div class="issue-icon">
+                        <i class="ri-blur-off-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Грязная печать</h3>
+                    <div class="price text-xl">от 600 руб</div>
                 </a>
             </div>
         </div>
