@@ -391,6 +391,89 @@
                 transform: none;
             }
         }
+
+        /* Trust sections styles */
+        .trust-section {
+            background-color: var(--bg-white);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .trust-block {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .trust-image {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .trust-image.map {
+            max-width: 400px;
+            height: 300px;
+        }
+
+        .trust-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .trust-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .trust-list li:before {
+            content: "✓";
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .trust-block {
+                padding: 1.5rem;
+            }
+
+            .trust-image {
+                max-width: 280px;
+                height: 180px;
+            }
+
+            .trust-image.map {
+                max-width: 320px;
+                height: 240px;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1023,6 +1106,49 @@
                     <button class="show-more-btn" onclick="toggleServices('plotters')">
                         <span class="show-more-text">Показать еще</span>
                     </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Trust Sections: Guarantee and Coverage -->
+    <section class="trust-section py-16 lg:py-24">
+        <div class="container-custom">
+            <div class="trust-grid">
+                <!-- Guarantee Section -->
+                <div class="trust-block">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                        Гарантия до 2 лет на все работы
+                    </h2>
+                    <div class="trust-image">
+                        Гарантийный талон
+                        <br>
+                        300x200px
+                    </div>
+                    <ul class="trust-list">
+                        <li>Бесплатное устранение повторных поломок</li>
+                        <li>Гарантия на запчасти и работы</li>
+                        <li>Официальное оформление документов</li>
+                        <li>Прозрачные условия обслуживания</li>
+                    </ul>
+                </div>
+                
+                <!-- Coverage Section -->
+                <div class="trust-block">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                        Выезд по Москве и Московской области
+                    </h2>
+                    <div class="trust-image map">
+                        Карта с радиусом обслуживания
+                        <br>
+                        400x300px
+                    </div>
+                    <ul class="trust-list">
+                        <li>Работаем во всех районах Москвы</li>
+                        <li>Выезжаем в течение 30 минут</li>
+                        <li>Есть мастера во всех районах</li>
+                        <li>Обслуживаем до 15 км за МКАД</li>
+                    </ul>
                 </div>
             </div>
         </div>
