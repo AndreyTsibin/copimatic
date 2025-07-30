@@ -30,7 +30,7 @@
             --warning-yellow: #d97706;
         }
         
-        * {
+        body, .container-custom, .card, .btn-cta, .equipment-card, .issue-card, .service-item, .contract-list, .guarantee-list, .coverage-list {
             font-family: 'Inter', sans-serif;
         }
         
@@ -891,7 +891,7 @@
     </section>
     
     <!-- Services Section -->
-    <section class="py-16 lg:py-24 bg-white">
+    <section id="prices" class="py-16 lg:py-24 bg-white">
         <div class="container-custom">
             <!-- Section Header -->
             <div class="text-center mb-12">
@@ -1239,7 +1239,7 @@
     </section>
     
     <!-- Guarantee Section -->
-    <section class="guarantee-section py-16 lg:py-24 bg-white">
+    <section id="guarantee" class="guarantee-section py-16 lg:py-24 bg-white">
         <div class="container-custom">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -1367,6 +1367,66 @@
                     <div class="contract-image mx-auto">
                         <div class="w-full max-w-sm h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium">
                             Договор на ремонт
+                            <br>
+                            350x250px
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contacts Section -->
+    <section id="contacts" class="py-16 lg:py-24 bg-white">
+        <div class="container-custom">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    Контакты
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Свяжитесь с нами любым удобным способом. Работаем ежедневно и готовы помочь с ремонтом вашей техники.
+                </p>
+                
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                            Как с нами связаться:
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <i class="ri-phone-line text-2xl text-blue-600"></i>
+                                <div>
+                                    <div class="text-lg font-semibold text-gray-900">+7 (495) 123-45-67</div>
+                                    <div class="text-gray-600">Ежедневно с 7:00 до 23:00</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="ri-mail-line text-2xl text-blue-600"></i>
+                                <div>
+                                    <div class="text-lg font-semibold text-gray-900">info@remont-tehniki.ru</div>
+                                    <div class="text-gray-600">Ответим в течение часа</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="ri-map-pin-line text-2xl text-blue-600"></i>
+                                <div>
+                                    <div class="text-lg font-semibold text-gray-900">Выезд по Москве и МО</div>
+                                    <div class="text-gray-600">До 15 км от МКАД</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="#forma" class="btn-cta inline-flex items-center text-lg px-6 py-3">
+                                <i class="ri-customer-service-line mr-2"></i>
+                                Заказать звонок
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mx-auto">
+                        <div class="w-full max-w-sm h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium">
+                            Карта или фото офиса
                             <br>
                             350x250px
                         </div>
