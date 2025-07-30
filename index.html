@@ -286,6 +286,12 @@
             display: block;
         }
 
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
         .service-item {
             display: flex;
             justify-content: space-between;
@@ -296,6 +302,10 @@
             cursor: pointer;
             text-decoration: none;
             color: inherit;
+        }
+
+        .service-item:nth-child(odd) {
+            border-right: 1px solid #e5e7eb;
         }
 
         .service-item:hover {
@@ -320,6 +330,27 @@
             font-size: 18px;
         }
 
+        .show-more-btn {
+            display: none;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .show-more-btn:hover {
+            background-color: var(--primary-blue-dark);
+        }
+
+        .service-item.hidden-mobile {
+            display: flex;
+        }
+
         /* Mobile tabs responsive */
         @media (max-width: 768px) {
             .services-tabs {
@@ -338,6 +369,26 @@
                 background-color: var(--primary-blue);
                 color: white;
                 border-bottom-color: var(--primary-blue);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item:nth-child(odd) {
+                border-right: none;
+            }
+
+            .service-item.hidden-mobile {
+                display: none;
+            }
+
+            .show-more-btn {
+                display: block;
+            }
+
+            .service-item:hover {
+                transform: none;
             }
         }
     </style>
@@ -653,310 +704,325 @@
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 <!-- Принтеры Tab -->
                 <div id="tab-printers" class="tab-content active">
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Сброс ошибки</span>
-                        <span class="service-price">400 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Вывод тракта отработанных чернил</span>
-                        <span class="service-price">380 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Извлечение посторонних предметов с разборкой</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Устранение замятия бумаги с разборкой</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Устранение замятия бумаги без разборки</span>
-                        <span class="service-price">260 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Извлечение посторонних предметов без разборки</span>
-                        <span class="service-price">260 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Профилактика</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Регулировка / калибровка</span>
-                        <span class="service-price">540 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт автоподатчика</span>
-                        <span class="service-price">1070 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт блока питания</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт датчиков</span>
-                        <span class="service-price">760 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт каретки</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт парковки</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт электронной платы</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт шлейфа</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт / регулировка сканера</span>
-                        <span class="service-price">480 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт системы подачи бумаги</span>
-                        <span class="service-price">430 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт механики</span>
-                        <span class="service-price">910 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Чистка печатающей головки</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена энкодера</span>
-                        <span class="service-price">720 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Сброс счетчика памперса</span>
-                        <span class="service-price">540 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена шлейфа СНПЧ</span>
-                        <span class="service-price">480 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена резервуара</span>
-                        <span class="service-price">430 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Профилактика СНПЧ</span>
-                        <span class="service-price">240 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена узла подачи бумаги</span>
-                        <span class="service-price">960 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена печатающей головки</span>
-                        <span class="service-price">1750 руб</span>
-                    </a>
+                    <div class="services-grid">
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Сброс ошибки</span>
+                            <span class="service-price">400 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Вывод тракта отработанных чернил</span>
+                            <span class="service-price">380 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Извлечение посторонних предметов с разборкой</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Устранение замятия бумаги с разборкой</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Устранение замятия бумаги без разборки</span>
+                            <span class="service-price">260 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Извлечение посторонних предметов без разборки</span>
+                            <span class="service-price">260 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Профилактика</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Регулировка / калибровка</span>
+                            <span class="service-price">540 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт автоподатчика</span>
+                            <span class="service-price">1070 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт блока питания</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт датчиков</span>
+                            <span class="service-price">760 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт каретки</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт парковки</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт электронной платы</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт шлейфа</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт / регулировка сканера</span>
+                            <span class="service-price">480 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт системы подачи бумаги</span>
+                            <span class="service-price">430 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт механики</span>
+                            <span class="service-price">910 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Чистка печатающей головки</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена энкодера</span>
+                            <span class="service-price">720 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Сброс счетчика памперса</span>
+                            <span class="service-price">540 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена шлейфа СНПЧ</span>
+                            <span class="service-price">480 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена резервуара</span>
+                            <span class="service-price">430 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Профилактика СНПЧ</span>
+                            <span class="service-price">240 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена узла подачи бумаги</span>
+                            <span class="service-price">960 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена печатающей головки</span>
+                            <span class="service-price">1750 руб</span>
+                        </a>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleServices('printers')">
+                        <span class="show-more-text">Показать еще</span>
+                    </button>
                 </div>
                 
                 <!-- МФУ Tab -->
                 <div id="tab-mfu" class="tab-content">
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Сброс ошибки</span>
-                        <span class="service-price">400 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Вывод тракта отработанных чернил</span>
-                        <span class="service-price">370 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Извлечение посторонних предметов с разборкой</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Устранение замятия бумаги с разборкой</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Устранение замятия бумаги без разборки</span>
-                        <span class="service-price">260 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Извлечение посторонних предметов без разборки</span>
-                        <span class="service-price">260 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Профилактика</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Регулировка / калибровка</span>
-                        <span class="service-price">540 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт автоподатчика</span>
-                        <span class="service-price">1090 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт блока питания</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт датчиков</span>
-                        <span class="service-price">760 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт каретки</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт парковки</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт электронной платы</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт шлейфа</span>
-                        <span class="service-price">1020 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт / регулировка сканера</span>
-                        <span class="service-price">480 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт системы подачи бумаги</span>
-                        <span class="service-price">430 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт механики</span>
-                        <span class="service-price">910 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Чистка печатающей головки</span>
-                        <span class="service-price">590 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена энкодера</span>
-                        <span class="service-price">700 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Сброс счетчика памперса</span>
-                        <span class="service-price">540 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена резервуара</span>
-                        <span class="service-price">430 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена узла подачи бумаги</span>
-                        <span class="service-price">1750 руб</span>
-                    </a>
+                    <div class="services-grid">
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Сброс ошибки</span>
+                            <span class="service-price">400 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Вывод тракта отработанных чернил</span>
+                            <span class="service-price">370 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Извлечение посторонних предметов с разборкой</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Устранение замятия бумаги с разборкой</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Устранение замятия бумаги без разборки</span>
+                            <span class="service-price">260 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Извлечение посторонних предметов без разборки</span>
+                            <span class="service-price">260 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Профилактика</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Регулировка / калибровка</span>
+                            <span class="service-price">540 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт автоподатчика</span>
+                            <span class="service-price">1090 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт блока питания</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт датчиков</span>
+                            <span class="service-price">760 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт каретки</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт парковки</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт электронной платы</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт шлейфа</span>
+                            <span class="service-price">1020 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт / регулировка сканера</span>
+                            <span class="service-price">480 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт системы подачи бумаги</span>
+                            <span class="service-price">430 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт механики</span>
+                            <span class="service-price">910 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Чистка печатающей головки</span>
+                            <span class="service-price">590 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена энкодера</span>
+                            <span class="service-price">700 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Сброс счетчика памперса</span>
+                            <span class="service-price">540 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена резервуара</span>
+                            <span class="service-price">430 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена узла подачи бумаги</span>
+                            <span class="service-price">1750 руб</span>
+                        </a>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleServices('mfu')">
+                        <span class="show-more-text">Показать еще</span>
+                    </button>
                 </div>
                 
                 <!-- Плоттеры Tab -->
                 <div id="tab-plotters" class="tab-content">
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Сброс ошибки</span>
-                        <span class="service-price">420 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Вывод тракта отработанных чернил</span>
-                        <span class="service-price">860 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Извлечение посторонних предметов с разборкой</span>
-                        <span class="service-price">1190 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Устранение замятия бумаги с разборкой</span>
-                        <span class="service-price">1190 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Извлечение посторонних предметов без разборки</span>
-                        <span class="service-price">860 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Устранение замятия бумаги без разборки</span>
-                        <span class="service-price">860 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Профилактика</span>
-                        <span class="service-price">1080 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Регулировка / калибровка</span>
-                        <span class="service-price">970 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт автоподатчика</span>
-                        <span class="service-price">1190 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт блока питания</span>
-                        <span class="service-price">1190 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт датчиков</span>
-                        <span class="service-price">1190 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт каретки</span>
-                        <span class="service-price">1080 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт парковки</span>
-                        <span class="service-price">1080 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт электронной платы</span>
-                        <span class="service-price">1080 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт шлейфа</span>
-                        <span class="service-price">1300 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт / регулировка сканера</span>
-                        <span class="service-price">970 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт системы подачи бумаги</span>
-                        <span class="service-price">1080 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Ремонт механики</span>
-                        <span class="service-price">1300 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Чистка печатающей головки</span>
-                        <span class="service-price">1000 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена энкодера</span>
-                        <span class="service-price">700 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Сброс счетчика памперса</span>
-                        <span class="service-price">970 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена шлейфа СНПЧ</span>
-                        <span class="service-price">1190 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена резервуара</span>
-                        <span class="service-price">970 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Профилактика СНПЧ</span>
-                        <span class="service-price">1300 руб</span>
-                    </a>
-                    <a href="#forma" class="service-item">
-                        <span class="service-name">Замена узла подачи бумаги</span>
-                        <span class="service-price">1700 руб</span>
-                    </a>
+                    <div class="services-grid">
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Сброс ошибки</span>
+                            <span class="service-price">420 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Вывод тракта отработанных чернил</span>
+                            <span class="service-price">860 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Извлечение посторонних предметов с разборкой</span>
+                            <span class="service-price">1190 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Устранение замятия бумаги с разборкой</span>
+                            <span class="service-price">1190 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Извлечение посторонних предметов без разборки</span>
+                            <span class="service-price">860 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item">
+                            <span class="service-name">Устранение замятия бумаги без разборки</span>
+                            <span class="service-price">860 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Профилактика</span>
+                            <span class="service-price">1080 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Регулировка / калибровка</span>
+                            <span class="service-price">970 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт автоподатчика</span>
+                            <span class="service-price">1190 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт блока питания</span>
+                            <span class="service-price">1190 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт датчиков</span>
+                            <span class="service-price">1190 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт каретки</span>
+                            <span class="service-price">1080 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт парковки</span>
+                            <span class="service-price">1080 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт электронной платы</span>
+                            <span class="service-price">1080 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт шлейфа</span>
+                            <span class="service-price">1300 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт / регулировка сканера</span>
+                            <span class="service-price">970 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт системы подачи бумаги</span>
+                            <span class="service-price">1080 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Ремонт механики</span>
+                            <span class="service-price">1300 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Чистка печатающей головки</span>
+                            <span class="service-price">1000 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена энкодера</span>
+                            <span class="service-price">700 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Сброс счетчика памперса</span>
+                            <span class="service-price">970 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена шлейфа СНПЧ</span>
+                            <span class="service-price">1190 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена резервуара</span>
+                            <span class="service-price">970 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Профилактика СНПЧ</span>
+                            <span class="service-price">1300 руб</span>
+                        </a>
+                        <a href="#forma" class="service-item hidden-mobile">
+                            <span class="service-name">Замена узла подачи бумаги</span>
+                            <span class="service-price">1700 руб</span>
+                        </a>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleServices('plotters')">
+                        <span class="show-more-text">Показать еще</span>
+                    </button>
                 </div>
             </div>
         </div>

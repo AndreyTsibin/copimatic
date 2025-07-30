@@ -90,8 +90,37 @@ document.addEventListener('DOMContentLoaded', function() {
     initStickyHeader();
     startCountdown();
     
-    // Make switchTab function globally available
+    // Mobile services toggle functionality
+    function toggleServices(tabName) {
+        const tabContent = document.getElementById('tab-' + tabName);
+        if (!tabContent) return;
+        
+        const hiddenServices = tabContent.querySelectorAll('.service-item.hidden-mobile');
+        const showMoreBtn = tabContent.querySelector('.show-more-btn');
+        const showMoreText = showMoreBtn.querySelector('.show-more-text');
+        
+        // Check if services are currently hidden
+        const isHidden = hiddenServices[0] && hiddenServices[0].style.display === 'none' || 
+                        hiddenServices[0] && !hiddenServices[0].style.display;
+        
+        if (isHidden) {
+            // Show hidden services
+            hiddenServices.forEach(service => {
+                service.style.display = 'flex';
+            });
+            showMoreText.textContent = 'Скрыть';
+        } else {
+            // Hide services
+            hiddenServices.forEach(service => {
+                service.style.display = 'none';
+            });
+            showMoreText.textContent = 'Показать еще';
+        }
+    }
+    
+    // Make functions globally available
     window.switchTab = switchTab;
+    window.toggleServices = toggleServices;
     
     // Mobile menu toggle functionality
     window.toggleMobileMenu = function() {
