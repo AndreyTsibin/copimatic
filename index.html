@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,20 +18,20 @@
     
     <style>
         :root {
-            --primary-blue: #2563eb;
+            --primary-blue: #2089FF;
             --primary-blue-dark: #1d4ed8;
-            --accent-orange: #ea580c;
-            --accent-orange-dark: #dc2626;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
+            --accent-orange: #2089FF;
+            --accent-orange-dark: #1d4ed8;
+            --text-primary: #151A42;
+            --text-secondary: #626262;
             --bg-white: #ffffff;
             --bg-gray: #f9fafb;
-            --success-green: #059669;
+            --success-green: #151A42;
             --warning-yellow: #d97706;
         }
         
         body, .container-custom, .card, .btn-cta, .equipment-card, .issue-card, .service-item, .contract-list, .guarantee-list, .coverage-list {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
         }
         
         .container-custom {
@@ -51,12 +51,13 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 0 20px rgba(32, 137, 255, 0.3);
         }
         
         .btn-cta:hover {
             background-color: var(--accent-orange-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4);
         }
         
         .card {
@@ -77,6 +78,11 @@
             font-weight: 500;
         }
         
+        .title {
+            font-size: 50px;
+            line-height: 1.2;
+        }
+        
         /* Header styles */
         header {
             backdrop-filter: blur(10px);
@@ -89,16 +95,29 @@
             transition: all 0.3s ease;
         }
         
-        /* Hero section gradient */
-        .bg-gradient-to-r {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        /* Hero section styles */
+        .hero-section {
+            background-color: var(--bg-white);
+        }
+        
+        /* Section spacing */
+        .section-spacing {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        
+        @media (min-width: 1024px) {
+            .section-spacing {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
         }
         
         /* Equipment cards */
         .equipment-card {
             background-color: var(--bg-white);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E6E6E6;
             transition: all 0.3s ease;
             overflow: hidden;
             text-decoration: none;
@@ -107,14 +126,15 @@
         }
         
         .equipment-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 1px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             color: inherit;
             text-decoration: none;
+            transform: translateY(-2px);
         }
         
         .equipment-placeholder {
-            width: 100%;
+            width: calc(100% - 20px);
             height: 150px;
             background-color: #e5e7eb;
             display: flex;
@@ -122,14 +142,44 @@
             justify-content: center;
             color: #6b7280;
             font-weight: 500;
+            margin: 10px;
+            border-radius: 8px;
         }
         
         /* Brand marquee styles */
         .brand-marquee {
-            background-color: var(--bg-gray);
             overflow: hidden;
             white-space: nowrap;
             position: relative;
+        }
+        
+        .brand-marquee .container-custom {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-marquee .container-custom::before,
+        .brand-marquee .container-custom::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .brand-marquee .container-custom::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+        
+        .brand-marquee .container-custom::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+        
+        .brand-marquee .brand-scroll {
             padding: 20px 0;
         }
         
@@ -163,117 +213,81 @@
             background-color: var(--bg-white);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E6E6E6;
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: block;
             cursor: pointer;
+            text-align: center;
         }
         
         .issue-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 1px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             color: inherit;
             text-decoration: none;
+            transform: translateY(-2px);
         }
         
         .issue-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
-            color: var(--primary-blue);
-            font-size: 28px;
+            margin: 0 auto 16px;
+            border-radius: 12px;
+            font-size: 24px;
+            color: white;
         }
 
         /* Discount section styles */
         .discount-section {
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .discount-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
-                        linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
-                        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%), 
-                        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-            opacity: 0.3;
-        }
-
-        .countdown-timer {
-            position: relative;
-            z-index: 1;
+            background-color: #F6FAFE;
+            border-radius: 24px;
         }
 
         .countdown-timer #countdown {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             letter-spacing: 0.05em;
-        }
-
-        .btn-discount {
-            background-color: var(--bg-white);
-            color: var(--accent-orange);
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-discount:hover {
-            background-color: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            color: var(--accent-orange-dark);
-            text-decoration: none;
         }
 
         /* Services tabs styles */
         .services-tabs {
-            display: flex;
-            justify-content: center;
+            background-color: #FAFAFA;
+            border: 1px solid #E6E6E6;
+            border-radius: 12px;
+            padding: 5px;
+            display: inline-flex;
             margin-bottom: 2rem;
-            border-bottom: 2px solid #e5e7eb;
+            gap: 5px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .tab-button {
             padding: 12px 24px;
             border: none;
-            background: none;
+            background: transparent;
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: #626262;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            margin: 0 1rem;
+            border-radius: 8px;
+            flex: 1;
+            max-width: 200px;
         }
 
         .tab-button.active {
-            color: var(--primary-blue);
-            border-bottom-color: var(--primary-blue);
+            background-color: #2089FF;
+            color: white;
+            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3);
         }
 
-        .tab-button:hover {
-            color: var(--primary-blue);
+        .tab-button:hover:not(.active) {
+            background-color: rgba(32, 137, 255, 0.1);
+            color: #2089FF;
         }
 
         .tab-content {
@@ -324,7 +338,7 @@
 
         .service-price {
             font-weight: 700;
-            color: var(--success-green);
+            color: #151A42;
             font-size: 18px;
         }
 
@@ -408,7 +422,7 @@
             display: flex;
             align-items: flex-start;
             font-size: 16px;
-            color: var(--text-primary);
+            color: #626262;
             line-height: 1.6;
         }
 
@@ -532,14 +546,14 @@
             display: flex;
             align-items: center;
             font-size: 16px;
-            color: var(--text-primary);
+            color: #626262;
             line-height: 1.6;
             gap: 12px;
         }
 
         .contract-list li i {
             font-size: 20px;
-            color: var(--primary-blue);
+            color: #2089FF;
             flex-shrink: 0;
             width: 20px;
             display: flex;
@@ -601,18 +615,133 @@
                 margin: 0 auto;
             }
         }
+
+        /* Subtitle with icon styles */
+        .section-subtitle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2089FF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(32, 137, 255, 0.2);
+        }
+        
+        /* Unique colors for each section subtitle */
+        .section-subtitle.hero {
+            color: #2563EB;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+        
+        .section-subtitle.equipment {
+            color: #16A34A;
+            border: 1px solid rgba(22, 163, 74, 0.2);
+        }
+        
+        .section-subtitle.issues {
+            color: #DC2626;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+        
+        .section-subtitle.discount {
+            color: #EA580C;
+            border: 1px solid rgba(234, 88, 12, 0.2);
+        }
+        
+        .section-subtitle.services {
+            color: #7C3AED;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+        
+        .section-subtitle.guarantee {
+            color: #059669;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+        
+        .section-subtitle.coverage {
+            color: #4338CA;
+            border: 1px solid rgba(67, 56, 202, 0.2);
+        }
+        
+        .section-subtitle.contract {
+            color: #BE185D;
+            border: 1px solid rgba(190, 24, 93, 0.2);
+        }
+        
+        .section-subtitle.contacts {
+            color: #0891B2;
+            border: 1px solid rgba(8, 145, 178, 0.2);
+        }
+
+        .section-subtitle i {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .section-subtitle.center {
+            justify-self: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .section-subtitle {
+                font-size: 12px;
+                padding: 3px 10px;
+                gap: 6px;
+            }
+
+            .section-subtitle i {
+                font-size: 14px;
+            }
+        }
+
+        /* Hidden issues styles */
+        .hidden-issues {
+            display: none;
+        }
+
+        .show-issues-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 24px;
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            border-radius: 12px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+            font-size: 16px;
+        }
+
+        .show-issues-btn:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(32, 137, 255, 0.3);
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container-custom">
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="w-30 h-10 bg-gray-300 rounded flex items-center justify-center text-sm font-medium text-gray-600">
-                        ЛОГО
-                    </div>
+                    <a href="#" class="flex items-center gap-3 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: #2089FF;">
+                            <i class="ri-flashlight-fill text-white text-lg"></i>
+                        </div>
+                        Копиматик
+                    </a>
                 </div>
                 
                 <!-- Navigation Menu -->
@@ -625,8 +754,8 @@
                 <!-- Phone and CTA -->
                 <div class="flex items-center space-x-6">
                     <div class="hidden lg:block text-right">
-                        <div class="text-lg font-semibold text-gray-900">+7 (495) 123-45-67</div>
-                        <div class="text-sm text-gray-500">Ежедневно с 7:00 до 23:00</div>
+                        <div class="text-lg font-semibold text-gray-900">8&nbsp;(495)&nbsp;138-39-22</div>
+                        <div class="text-sm text-gray-500">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                     </div>
                     <a href="#forma" class="btn-cta">
                         Заказать звонок
@@ -646,8 +775,8 @@
                     <a href="#guarantee" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Гарантия</a>
                     <a href="#contacts" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Контакты</a>
                     <div class="px-4 py-2 border-t">
-                        <div class="text-lg font-semibold text-gray-900">+7 (495) 123-45-67</div>
-                        <div class="text-sm text-gray-500">Ежедневно с 7:00 до 23:00</div>
+                        <div class="text-lg font-semibold text-gray-900">8&nbsp;(495)&nbsp;138-39-22</div>
+                        <div class="text-sm text-gray-500">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                     </div>
                 </div>
             </div>
@@ -655,29 +784,74 @@
     </header>
     
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 lg:py-32">
+    <section class="relative bg-white" style="padding: 60px 0;">
         <div class="container-custom">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Hero Content -->
-                <div class="text-center lg:text-left">
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Ремонт оргтехники любой сложности
+                <!-- Content column -->
+                <div class="order-1 lg:order-1">
+                    <!-- Hero Content -->
+                    <div class="section-subtitle hero">
+                        <i class="ri-tools-fill"></i>
+                        Сервисный центр
+                    </div>
+                    <h1 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6" style="color: #151A42; line-height: 1.1;">
+                        Ремонт оргтехники любой сложности в Москве
                     </h1>
-                    <p class="text-xl lg:text-2xl mb-8 opacity-90">
-                        Ремонт любых брендов по низким ценам с гарантией до 2-х лет
-                    </p>
-                    <a href="#forma" class="btn-cta text-lg px-8 py-4 inline-flex items-center">
-                        <i class="ri-tools-line mr-2"></i>
-                        Бесплатная диагностика
-                    </a>
+                    <div class="text-lg mb-8" style="color: #626262; font-size: 18px; line-height: 1.6;">
+                        <p class="mb-4">Ремонтируем бренды любой сложности по низким ценам с официальной гарантией до 2 лет — работаем быстро, честно!</p>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-16">
+                        <a href="#forma" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105" style="background-color: #2089FF; box-shadow: 0 4px 15px rgba(32, 137, 255, 0.3);">
+                            <i class="ri-tools-line mr-2"></i>
+                            Бесплатная диагностика
+                        </a>
+                        <a href="tel:84951383922" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg border-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105" style="color: white; border-color: #34C759; background: #34C759; box-shadow: 0 2px 8px rgba(52, 199, 89, 0.3);">
+                            <i class="ri-phone-line mr-2"></i>
+                            8 (495) 138-39-22
+                        </a>
+                    </div>
+                    
+                    <!-- Rating Blocks -->
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <!-- Yandex Rating -->
+                        <div class="flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-lg">
+                            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                Я
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1 mb-1">
+                                    <span class="text-yellow-400">★★★★★</span>
+                                    <span class="font-semibold ml-2" style="color: #151A42;">4.8</span>
+                                </div>
+                                <div class="text-sm" style="color: #626262;">Яндекс Карты</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2GIS Rating -->
+                        <div class="flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-lg">
+                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                2Г
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1 mb-1">
+                                    <span class="text-yellow-400">★★★★★</span>
+                                    <span class="font-semibold ml-2" style="color: #151A42;">4.7</span>
+                                </div>
+                                <div class="text-sm" style="color: #626262;">2ГИС</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Hero Image -->
-                <div class="text-center">
-                    <div class="w-full max-w-md mx-auto h-75 bg-white bg-opacity-20 rounded-lg flex items-center justify-center text-lg font-medium backdrop-blur-sm">
-                        Изображение техника
-                        <br>
-                        400x300px
+                <!-- Image column -->
+                <div class="order-2 lg:order-2">
+                    <div class="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center">
+                        <div class="text-center text-gray-400">
+                            <i class="ri-printer-line text-8xl mb-4"></i>
+                            <p class="text-lg">Изображение мастера с техникой</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -685,15 +859,19 @@
     </section>
     
     <!-- Equipment Section -->
-    <section class="py-16 lg:py-24 bg-white">
+    <section class="section-spacing bg-white">
         <div class="container-custom">
             <!-- Section Header -->
             <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <div class="section-subtitle equipment center">
+                    <i class="ri-settings-3-line"></i>
+                    Оборудование
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
                     Что сломалось?
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Выберите тип оборудования и получите быструю помощь наших специалистов
+                <p class="text-lg max-w-2xl mx-auto" style="color: #626262;">
+                    Выберите тип оборудования и&nbsp;получите быструю помощь
                 </p>
             </div>
             
@@ -706,9 +884,9 @@
                         <br>
                         Принтеры
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Принтеры</h3>
-                        <p class="text-gray-600">Лазерные и струйные принтеры всех марок</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2" style="color: #151A42;">Принтеры</h3>
+                        <p style="color: #626262;">Лазерные и&nbsp;струйные принтеры всех марок</p>
                     </div>
                 </a>
                 
@@ -719,9 +897,9 @@
                         <br>
                         МФУ
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">МФУ</h3>
-                        <p class="text-gray-600">Многофункциональные устройства с функцией печати, сканирования и копирования</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2" style="color: #151A42;">МФУ</h3>
+                        <p style="color: #626262;">Многофункциональные устройства с&nbsp;функцией печати, сканирования и&nbsp;копирования</p>
                     </div>
                 </a>
                 
@@ -732,9 +910,9 @@
                         <br>
                         Плоттеры
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Плоттеры</h3>
-                        <p class="text-gray-600">Широкоформатные плоттеры для профессиональной печати</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2" style="color: #151A42;">Плоттеры</h3>
+                        <p style="color: #626262;">Широкоформатные плоттеры для&nbsp;профессиональной печати</p>
                     </div>
                 </a>
             </div>
@@ -742,176 +920,228 @@
     </section>
     
     <!-- Brand Marquee Section -->
-    <section class="brand-marquee">
-        <div class="brand-scroll">
-            <!-- First set -->
-            <div class="brand-item">HP</div>
-            <div class="brand-item">Epson</div>
-            <div class="brand-item">Canon</div>
-            <div class="brand-item">Pantum</div>
-            <div class="brand-item">Kyocera</div>
-            <div class="brand-item">Brother</div>
-            <div class="brand-item">Xerox</div>
-            <div class="brand-item">Samsung</div>
-            <div class="brand-item">Oki</div>
-            <div class="brand-item">Panasonic</div>
-            <!-- Second set for seamless loop -->
-            <div class="brand-item">HP</div>
-            <div class="brand-item">Epson</div>
-            <div class="brand-item">Canon</div>
-            <div class="brand-item">Pantum</div>
-            <div class="brand-item">Kyocera</div>
-            <div class="brand-item">Brother</div>
-            <div class="brand-item">Xerox</div>
-            <div class="brand-item">Samsung</div>
-            <div class="brand-item">Oki</div>
-            <div class="brand-item">Panasonic</div>
+    <section class="brand-marquee" style="padding: 0;">
+        <div class="container-custom">
+            <div class="brand-scroll">
+                <!-- First set -->
+                <div class="brand-item">HP</div>
+                <div class="brand-item">Epson</div>
+                <div class="brand-item">Canon</div>
+                <div class="brand-item">Pantum</div>
+                <div class="brand-item">Kyocera</div>
+                <div class="brand-item">Brother</div>
+                <div class="brand-item">Xerox</div>
+                <div class="brand-item">Samsung</div>
+                <div class="brand-item">Oki</div>
+                <div class="brand-item">Panasonic</div>
+                <!-- Second set for seamless loop -->
+                <div class="brand-item">HP</div>
+                <div class="brand-item">Epson</div>
+                <div class="brand-item">Canon</div>
+                <div class="brand-item">Pantum</div>
+                <div class="brand-item">Kyocera</div>
+                <div class="brand-item">Brother</div>
+                <div class="brand-item">Xerox</div>
+                <div class="brand-item">Samsung</div>
+                <div class="brand-item">Oki</div>
+                <div class="brand-item">Panasonic</div>
+            </div>
         </div>
     </section>
     
     <!-- Issues Section -->
-    <section class="py-16 lg:py-24 bg-gray-50">
+    <section class="section-spacing bg-white">
         <div class="container-custom">
             <!-- Section Header -->
             <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <div class="section-subtitle issues center">
+                    <i class="ri-tools-line"></i>
+                    Проблемы
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
                     Частые неисправности
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Выберите вашу проблему и узнайте стоимость ремонта
+                <p class="text-lg max-w-2xl mx-auto" style="color: #626262;">
+                    Выберите вашу проблему и&nbsp;узнайте стоимость ремонта
                 </p>
             </div>
             
             <!-- Issues Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                    <div class="issue-icon" style="background-color: #3B82F6; box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.1);">
                         <i class="ri-file-paper-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Застряла бумага</h3>
-                    <div class="price text-base font-medium">от 550 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Застряла бумага</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Механическое повреждение бумаги или неправильная подача</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 550 руб</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                    <div class="issue-icon" style="background-color: #EF4444; box-shadow: 0 0 0 10px rgba(239, 68, 68, 0.1);">
                         <i class="ri-volume-up-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Шумит</h3>
-                    <div class="price text-base font-medium">от 500 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Шумит</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Износ подшипников или неисправность валов</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 500 руб</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                    <div class="issue-icon" style="background-color: #F59E0B; box-shadow: 0 0 0 10px rgba(245, 158, 11, 0.1);">
                         <i class="ri-file-damage-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Зажевывает бумагу</h3>
-                    <div class="price text-base font-medium">от 550 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Зажевывает бумагу</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Проблемы с роликами подачи бумаги</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 550 руб</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                    <div class="issue-icon" style="background-color: #8B5CF6; box-shadow: 0 0 0 10px rgba(139, 92, 246, 0.1);">
                         <i class="ri-file-copy-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Берет несколько листов</h3>
-                    <div class="price text-base font-medium">от 600 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Берет несколько листов</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Износ разделительных прокладок</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                    <div class="issue-icon" style="background-color: #10B981; box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.1);">
                         <i class="ri-file-forbid-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Не берет бумагу</h3>
-                    <div class="price text-base font-medium">от 600 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Не берет бумагу</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Сломанные датчики или ролики подачи</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
                 </a>
                 
-                <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                <a href="#forma" class="issue-card hidden-issues">
+                    <div class="issue-icon" style="background-color: #DC2626; box-shadow: 0 0 0 10px rgba(220, 38, 38, 0.1);">
                         <i class="ri-shut-down-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Не включается</h3>
-                    <div class="price text-base font-medium">от 900 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Не включается</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Проблемы с блоком питания или платой</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 900 руб</div>
                 </a>
                 
-                <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                <a href="#forma" class="issue-card hidden-issues">
+                    <div class="issue-icon" style="background-color: #F97316; box-shadow: 0 0 0 10px rgba(249, 115, 22, 0.1);">
                         <i class="ri-error-warning-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Выдает ошибку</h3>
-                    <div class="price text-base font-medium">от 400 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Выдает ошибку</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Программные сбои или счетчики</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 400 руб</div>
                 </a>
                 
-                <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                <a href="#forma" class="issue-card hidden-issues">
+                    <div class="issue-icon" style="background-color: #06B6D4; box-shadow: 0 0 0 10px rgba(6, 182, 212, 0.1);">
                         <i class="ri-flashlight-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Мигают кнопки</h3>
-                    <div class="price text-base font-medium">от 400 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Мигают кнопки</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Неисправность панели управления</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 400 руб</div>
                 </a>
                 
-                <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                <a href="#forma" class="issue-card hidden-issues">
+                    <div class="issue-icon" style="background-color: #84CC16; box-shadow: 0 0 0 10px rgba(132, 204, 22, 0.1);">
                         <i class="ri-contrast-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Полосы при печати</h3>
-                    <div class="price text-base font-medium">от 600 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Полосы при печати</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Загрязнение валов или ленты передачи</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
-                    <div class="issue-icon">
+                    <div class="issue-icon" style="background-color: #EC4899; box-shadow: 0 0 0 10px rgba(236, 72, 153, 0.1);">
                         <i class="ri-blur-off-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Грязная печать</h3>
-                    <div class="price text-base font-medium">от 600 руб</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Грязная печать</h3>
+                    <p class="text-sm mb-3" style="color: #626262;">Нуждается в чистке печатающей головки</p>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
                 </a>
+            </div>
+            
+            <!-- Show More Button -->
+            <div class="text-center">
+                <button id="show-issues-btn" class="show-issues-btn" onclick="toggleIssues()">
+                    <i class="ri-arrow-down-line mr-2"></i>
+                    Показать все неисправности
+                </button>
             </div>
         </div>
     </section>
     
     <!-- Discount Section -->
-    <section class="discount-section py-16 lg:py-24">
+    <section class="bg-white" style="padding: 0;">
         <div class="container-custom">
-            <div class="text-center">
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
-                    Скидка 25% при заказе сегодня!
-                </h2>
-                <div class="countdown-timer mb-6">
-                    <div id="countdown" class="text-5xl lg:text-6xl font-bold text-white">
-                        23:59:45
+            <div class="bg-white rounded-3xl p-8 lg:p-12" style="background-color: #F6FAFE;">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="text-left">
+                        <div class="section-subtitle discount">
+                            <i class="ri-percent-line"></i>
+                            Акция
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
+                            Скидка 25% при заказе сегодня!
+                        </h2>
+                        <p class="text-lg mb-6" style="color: #626262;">
+                            Успейте заказать ремонт по специальной цене и экономьте на качественном ремонте вашей оргтехники.
+                        </p>
+                        
+                        <!-- Timer -->
+                        <div class="mb-6">
+                            <div class="text-sm font-medium mb-2" style="color: #626262;">Осталось времени:</div>
+                            <div id="countdown" class="text-3xl lg:text-4xl font-bold" style="color: #151A42;">
+                                23:59:45
+                            </div>
+                        </div>
+                        
+                        <a href="#forma" class="btn-cta text-lg px-8 py-4 inline-flex items-center">
+                            <i class="ri-percent-line mr-2"></i>
+                            Получить скидку
+                        </a>
+                    </div>
+                    
+                    <!-- Right Image Placeholder -->
+                    <div class="text-center">
+                        <div class="w-full max-w-md mx-auto h-80 bg-gray-200 rounded-lg flex items-center justify-content text-lg font-medium" style="color: #626262;">
+                            Изображение скидки
+                            <br>
+                            400x320px
+                        </div>
                     </div>
                 </div>
-                <p class="text-xl lg:text-2xl text-white mb-8 opacity-90">
-                    Успейте заказать ремонт по специальной цене
-                </p>
-                <a href="#forma" class="btn-discount text-lg px-8 py-4 inline-flex items-center">
-                    <i class="ri-percent-line mr-2"></i>
-                    Получить скидку
-                </a>
             </div>
         </div>
     </section>
     
     <!-- Services Section -->
-    <section id="prices" class="py-16 lg:py-24 bg-white">
+    <section id="prices" class="section-spacing bg-white">
         <div class="container-custom">
             <!-- Section Header -->
             <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <div class="section-subtitle services center">
+                    <i class="ri-price-tag-3-line"></i>
+                    Прайс-лист
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
                     Наши услуги и цены
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Полный прайс-лист по ремонту и обслуживанию оргтехники
+                <p class="text-lg max-w-2xl mx-auto" style="color: #626262;">
+                    Полный прайс-лист по&nbsp;ремонту и&nbsp;обслуживанию оргтехники
                 </p>
             </div>
             
             <!-- Services Tabs -->
-            <div class="services-tabs">
-                <button class="tab-button active" onclick="switchTab('printers')">Принтеры</button>
-                <button class="tab-button" onclick="switchTab('mfu')">МФУ</button>
-                <button class="tab-button" onclick="switchTab('plotters')">Плоттеры</button>
+            <div class="text-center">
+                <div class="services-tabs">
+                    <button class="tab-button active" onclick="switchTab('printers')">Принтеры</button>
+                    <button class="tab-button" onclick="switchTab('mfu')">МФУ</button>
+                    <button class="tab-button" onclick="switchTab('plotters')">Плоттеры</button>
+                </div>
             </div>
             
             <!-- Tab Content -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-white rounded-lg overflow-hidden" style="border: 1px solid #E6E6E6;">
                 <!-- Принтеры Tab -->
                 <div id="tab-printers" class="tab-content active">
                     <div class="services-grid">
@@ -1239,42 +1469,44 @@
     </section>
     
     <!-- Guarantee Section -->
-    <section id="guarantee" class="guarantee-section py-16 lg:py-24 bg-white">
+    <section id="guarantee" class="guarantee-section section-spacing bg-white">
         <div class="container-custom">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                    Гарантия до 2 лет на все работы
-                </h2>
-                <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Мы настолько уверены в качестве нашей работы, что даем расширенную гарантию. 
-                    Это не просто обещание — это официальное обязательство перед каждым клиентом.
-                </p>
-                
-                <div class="guarantee-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="guarantee-image mx-auto">
-                        <div class="w-full max-w-sm h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium">
-                            Гарантийный талон
-                            <br>
-                            300x200px
-                        </div>
+            <div class="guarantee-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Left Content -->
+                <div class="guarantee-benefits text-left">
+                    <div class="section-subtitle guarantee">
+                        <i class="ri-shield-check-line"></i>
+                        Надёжность
                     </div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
+                        Гарантия до 2 лет на все работы
+                    </h2>
+                    <p class="text-lg mb-6" style="color: #626262;">
+                        Мы настолько уверены в качестве нашей работы, что даем расширенную гарантию. Это не просто обещание — это официальное обязательство перед каждым клиентом.
+                    </p>
                     
-                    <div class="guarantee-benefits text-left">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
-                            Почему стоит выбрать нас:
-                        </h3>
-                        <ul class="guarantee-list space-y-3">
-                            <li>Бесплатное устранение повторных поломок</li>
-                            <li>Гарантия на запчасти и работы</li>
-                            <li>Официальное оформление документов</li>
-                            <li>Прозрачные условия обслуживания</li>
-                        </ul>
-                        <div class="mt-6">
-                            <a href="#forma" class="btn-cta inline-flex items-center">
-                                <i class="ri-shield-check-line mr-2"></i>
-                                Получить гарантию
-                            </a>
-                        </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: #151A42;">
+                        Почему стоит выбрать нас:
+                    </h3>
+                    <ul class="guarantee-list space-y-3 mb-6">
+                        <li>Бесплатное устранение повторных поломок</li>
+                        <li>Гарантия на запчасти и работы</li>
+                        <li>Официальное оформление документов</li>
+                        <li>Прозрачные условия обслуживания</li>
+                    </ul>
+                    
+                    <a href="#forma" class="btn-cta inline-flex items-center">
+                        <i class="ri-shield-check-line mr-2"></i>
+                        Получить гарантию
+                    </a>
+                </div>
+                
+                <!-- Right Image -->
+                <div class="guarantee-image">
+                    <div class="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center font-medium" style="color: #626262;">
+                        Гарантийный талон
+                        <br>
+                        400x320px
                     </div>
                 </div>
             </div>
@@ -1282,94 +1514,114 @@
     </section>
     
     <!-- Coverage Section -->
-    <section class="coverage-section py-16 lg:py-24 bg-gray-50">
+    <section class="coverage-section section-spacing bg-white">
         <div class="container-custom">
             <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                <div class="section-subtitle coverage center">
+                    <i class="ri-map-pin-line"></i>
+                    География
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
                     Выезд по Москве и Московской области
                 </h2>
-                <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                    Наши мастера работают во всех районах столицы и ближайшего Подмосковья. 
-                    Быстрый выезд и качественный ремонт на месте.
+                <p class="text-lg max-w-3xl mx-auto mb-8" style="color: #626262;">
+                    Наши мастера работают во всех районах столицы и ближайшего Подмосковья. Быстрый выезд и качественный ремонт на месте.
                 </p>
             </div>
             
-            <div class="coverage-content-full grid lg:grid-cols-5 gap-8 items-start">
-                <div class="coverage-map-large lg:col-span-3">
-                    <div class="w-full h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg">
-                        <iframe 
-                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A3d980aa3b8bfcfe193bc2690a40dc8c4b5351a27f6c00c95993456caa0462487&amp;source=constructor" 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0"
-                            style="border-radius: 8px;">
-                        </iframe>
+            <!-- Full Width Map -->
+            <div class="coverage-map-full mb-12">
+                <div class="w-full h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg">
+                    <iframe 
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A3d980aa3b8bfcfe193bc2690a40dc8c4b5351a27f6c00c95993456caa0462487&amp;source=constructor" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0"
+                        style="border-radius: 8px;">
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- Service Areas Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #2089FF;">
+                        <i class="ri-map-pin-line text-xl"></i>
                     </div>
+                    <h4 class="font-semibold mb-2" style="color: #151A42;">Все районы Москвы</h4>
+                    <p class="text-sm" style="color: #626262;">Полное покрытие столицы</p>
                 </div>
                 
-                <div class="coverage-benefits-full lg:col-span-2">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">
-                        Зоны обслуживания:
-                    </h3>
-                    <ul class="coverage-list-full space-y-4 mb-8">
-                        <li>Работаем во всех районах Москвы</li>
-                        <li>Выезжаем в течение 30 минут</li>
-                        <li>Есть мастера во всех районах</li>
-                        <li>Обслуживаем до 15 км за МКАД</li>
-                    </ul>
-                    <div>
-                        <a href="#forma" class="btn-cta inline-flex items-center text-lg px-6 py-3">
-                            <i class="ri-map-pin-line mr-2"></i>
-                            Вызвать мастера
-                        </a>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #10B981;">
+                        <i class="ri-time-line text-xl"></i>
                     </div>
+                    <h4 class="font-semibold mb-2" style="color: #151A42;">Выезд за 30 минут</h4>
+                    <p class="text-sm" style="color: #626262;">Быстрая реакция на заявку</p>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #8B5CF6;">
+                        <i class="ri-group-line text-xl"></i>
+                    </div>
+                    <h4 class="font-semibold mb-2" style="color: #151A42;">Мастера в каждом районе</h4>
+                    <p class="text-sm" style="color: #626262;">Нет очередей и ожидания</p>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #F97316;">
+                        <i class="ri-road-map-line text-xl"></i>
+                    </div>
+                    <h4 class="font-semibold mb-2" style="color: #151A42;">До 15 км за МКАД</h4>
+                    <p class="text-sm" style="color: #626262;">Обслуживаем Подмосковье</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Contract Section -->
-    <section class="contract-section py-16 lg:py-24 bg-gray-50">
+    <section class="contract-section section-spacing bg-white">
         <div class="container-custom">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                    Работаем официально по договору
-                </h2>
-                <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Прозрачное сотрудничество с официальным оформлением всех работ. 
-                    Фиксированные цены, полная отчетность и надежные гарантии.
-                </p>
-                
-                <div class="contract-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="contract-benefits text-left">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
-                            Процесс работы:
-                        </h3>
-                        <ul class="contract-list space-y-3 mb-6">
-                            <li><i class="ri-file-text-line"></i>Заключение договора до начала работ</li>
-                            <li><i class="ri-money-dollar-circle-line"></i>Фиксированная цена без доплат</li>
-                            <li><i class="ri-file-list-3-line"></i>Полная отчетность по работам</li>
-                            <li><i class="ri-folder-line"></i>Официальные документы для бухгалтерии</li>
-                        </ul>
-                        
-                        <h4 class="text-lg font-semibold text-gray-900 mb-4">
-                            Вы получите полный пакет документов
-                        </h4>
-                        
-                        <div class="mt-6">
-                            <a href="#forma" class="btn-cta inline-flex items-center">
-                                <i class="ri-file-check-line mr-2"></i>
-                                Заказать ремонт
-                            </a>
-                        </div>
+            <div class="contract-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Left Content -->
+                <div class="contract-benefits text-left">
+                    <div class="section-subtitle contract">
+                        <i class="ri-file-text-line"></i>
+                        Легальность
                     </div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
+                        Работаем официально по договору
+                    </h2>
+                    <p class="text-lg mb-6" style="color: #626262;">
+                        Прозрачное сотрудничество с официальным оформлением всех работ. Фиксированные цены, полная отчетность и надежные гарантии.
+                    </p>
                     
-                    <div class="contract-image mx-auto">
-                        <div class="w-full max-w-sm h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium">
-                            Договор на ремонт
-                            <br>
-                            350x250px
-                        </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: #151A42;">
+                        Процесс работы:
+                    </h3>
+                    <ul class="contract-list space-y-3 mb-6">
+                        <li><i class="ri-file-text-line"></i>Заключение договора до начала работ</li>
+                        <li><i class="ri-money-dollar-circle-line"></i>Фиксированная цена без доплат</li>
+                        <li><i class="ri-file-list-3-line"></i>Полная отчетность по работам</li>
+                        <li><i class="ri-folder-line"></i>Официальные документы для бухгалтерии</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold mb-6" style="color: #151A42;">
+                        Вы получите полный пакет документов
+                    </h4>
+                    
+                    <a href="#forma" class="btn-cta inline-flex items-center">
+                        <i class="ri-file-check-line mr-2"></i>
+                        Заказать ремонт
+                    </a>
+                </div>
+                
+                <!-- Right Image -->
+                <div class="contract-image">
+                    <div class="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center font-medium" style="color: #626262;">
+                        Договор на ремонт
+                        <br>
+                        400x320px
                     </div>
                 </div>
             </div>
@@ -1377,41 +1629,45 @@
     </section>
     
     <!-- Contacts Section -->
-    <section id="contacts" class="py-16 lg:py-24 bg-white">
+    <section id="contacts" class="section-spacing bg-white">
         <div class="container-custom">
             <div class="max-w-4xl mx-auto text-center">
+                <div class="section-subtitle contacts center">
+                    <i class="ri-phone-line"></i>
+                    Связь
+                </div>
                 <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                     Контакты
                 </h2>
                 <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Свяжитесь с нами любым удобным способом. Работаем ежедневно и готовы помочь с ремонтом вашей техники.
+                    Свяжитесь с&nbsp;нами любым удобным способом. Работаем ежедневно и&nbsp;готовы помочь с&nbsp;ремонтом вашей техники.
                 </p>
                 
                 <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <div class="text-left">
                         <h3 class="text-xl font-semibold text-gray-900 mb-6">
-                            Как с нами связаться:
+                            Как с&nbsp;нами связаться:
                         </h3>
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
                                 <i class="ri-phone-line text-2xl text-blue-600"></i>
                                 <div>
-                                    <div class="text-lg font-semibold text-gray-900">+7 (495) 123-45-67</div>
-                                    <div class="text-gray-600">Ежедневно с 7:00 до 23:00</div>
+                                    <div class="text-lg font-semibold text-gray-900">8&nbsp;(495)&nbsp;138-39-22</div>
+                                    <div class="text-gray-600">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4">
                                 <i class="ri-mail-line text-2xl text-blue-600"></i>
                                 <div>
                                     <div class="text-lg font-semibold text-gray-900">info@remont-tehniki.ru</div>
-                                    <div class="text-gray-600">Ответим в течение часа</div>
+                                    <div class="text-gray-600">Ответим в&nbsp;течение часа</div>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4">
                                 <i class="ri-map-pin-line text-2xl text-blue-600"></i>
                                 <div>
                                     <div class="text-lg font-semibold text-gray-900">Выезд по Москве и МО</div>
-                                    <div class="text-gray-600">До 15 км от МКАД</div>
+                                    <div class="text-gray-600">До&nbsp;15&nbsp;км от&nbsp;МКАД</div>
                                 </div>
                             </div>
                         </div>
