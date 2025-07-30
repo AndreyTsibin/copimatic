@@ -26,7 +26,7 @@
             --text-secondary: #626262;
             --bg-white: #ffffff;
             --bg-gray: #f9fafb;
-            --success-green: #151A42;
+            --success-green: #10B981;
             --warning-yellow: #d97706;
         }
         
@@ -433,7 +433,7 @@
             font-size: 18px;
             margin-right: 12px;
             flex-shrink: 0;
-            margin-top: 2px;
+            margin-top: 0px;
         }
 
         /* Coverage section styles */
@@ -626,56 +626,46 @@
             color: #2089FF;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            padding: 4px 14px;
+            margin-bottom: 30px;
+            padding: 0px;
             border-radius: 20px;
-            border: 1px solid rgba(32, 137, 255, 0.2);
         }
         
         /* Unique colors for each section subtitle */
         .section-subtitle.hero {
             color: #2563EB;
-            border: 1px solid rgba(37, 99, 235, 0.2);
         }
         
         .section-subtitle.equipment {
             color: #16A34A;
-            border: 1px solid rgba(22, 163, 74, 0.2);
         }
         
         .section-subtitle.issues {
             color: #DC2626;
-            border: 1px solid rgba(220, 38, 38, 0.2);
         }
         
         .section-subtitle.discount {
             color: #EA580C;
-            border: 1px solid rgba(234, 88, 12, 0.2);
         }
         
         .section-subtitle.services {
             color: #7C3AED;
-            border: 1px solid rgba(124, 58, 237, 0.2);
         }
         
         .section-subtitle.guarantee {
             color: #059669;
-            border: 1px solid rgba(5, 150, 105, 0.2);
         }
         
         .section-subtitle.coverage {
             color: #4338CA;
-            border: 1px solid rgba(67, 56, 202, 0.2);
         }
         
         .section-subtitle.contract {
             color: #BE185D;
-            border: 1px solid rgba(190, 24, 93, 0.2);
         }
         
         .section-subtitle.contacts {
             color: #0891B2;
-            border: 1px solid rgba(8, 145, 178, 0.2);
         }
 
         .section-subtitle i {
@@ -920,7 +910,7 @@
     </section>
     
     <!-- Brand Marquee Section -->
-    <section class="brand-marquee" style="padding: 0;">
+    <section class="brand-marquee" style="padding: 60px 0;">
         <div class="container-custom">
             <div class="brand-scroll">
                 <!-- First set -->
@@ -1070,18 +1060,14 @@
     </section>
     
     <!-- Discount Section -->
-    <section class="bg-white" style="padding: 0;">
+    <section class="bg-white" style="padding: 60px 0;">
         <div class="container-custom">
             <div class="bg-white rounded-3xl p-8 lg:p-12" style="background-color: #F6FAFE;">
                 <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <!-- Left Content -->
                     <div class="text-left">
-                        <div class="section-subtitle discount">
-                            <i class="ri-percent-line"></i>
-                            Акция
-                        </div>
                         <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
-                            Скидка 25% при заказе сегодня!
+                            Скидка 25% при заказе через сайт сегодня!
                         </h2>
                         <p class="text-lg mb-6" style="color: #626262;">
                             Успейте заказать ремонт по специальной цене и экономьте на качественном ремонте вашей оргтехники.
@@ -1629,63 +1615,56 @@
     </section>
     
     <!-- Contacts Section -->
-    <section id="contacts" class="section-spacing bg-white">
+    <section id="contacts" class="section-spacing" style="background-color: #F6FAFE;">
         <div class="container-custom">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="section-subtitle contacts center">
-                    <i class="ri-phone-line"></i>
-                    Связь
-                </div>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                    Контакты
-                </h2>
-                <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Свяжитесь с&nbsp;нами любым удобным способом. Работаем ежедневно и&nbsp;готовы помочь с&nbsp;ремонтом вашей техники.
-                </p>
-                
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="text-left">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-6">
-                            Как с&nbsp;нами связаться:
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <i class="ri-phone-line text-2xl text-blue-600"></i>
-                                <div>
-                                    <div class="text-lg font-semibold text-gray-900">8&nbsp;(495)&nbsp;138-39-22</div>
-                                    <div class="text-gray-600">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <i class="ri-mail-line text-2xl text-blue-600"></i>
-                                <div>
-                                    <div class="text-lg font-semibold text-gray-900">info@remont-tehniki.ru</div>
-                                    <div class="text-gray-600">Ответим в&nbsp;течение часа</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <i class="ri-map-pin-line text-2xl text-blue-600"></i>
-                                <div>
-                                    <div class="text-lg font-semibold text-gray-900">Выезд по Москве и МО</div>
-                                    <div class="text-gray-600">До&nbsp;15&nbsp;км от&nbsp;МКАД</div>
-                                </div>
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                <!-- Left - Contact Info -->
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
+                        Контакты
+                    </h2>
+                    <p class="text-lg mb-8" style="color: #626262;">
+                        Свяжитесь с&nbsp;нами любым удобным способом. Работаем ежедневно и&nbsp;готовы помочь с&nbsp;ремонтом вашей техники.
+                    </p>
+                    
+                    <h3 class="text-xl font-semibold mb-6" style="color: #151A42;">
+                        Как с&nbsp;нами связаться:
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-phone-line text-2xl" style="color: #2089FF;"></i>
+                            <div>
+                                <div class="text-lg font-semibold" style="color: #151A42;">8&nbsp;(495)&nbsp;138-39-22</div>
+                                <div style="color: #626262;">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                             </div>
                         </div>
-                        
-                        <div class="mt-8">
-                            <a href="#forma" class="btn-cta inline-flex items-center text-lg px-6 py-3">
-                                <i class="ri-customer-service-line mr-2"></i>
-                                Заказать звонок
-                            </a>
+                        <div class="flex items-center gap-4">
+                            <i class="ri-map-pin-line text-2xl" style="color: #2089FF;"></i>
+                            <div>
+                                <div class="text-lg font-semibold" style="color: #151A42;">Выезд по Москве и МО</div>
+                                <div style="color: #626262;">До&nbsp;15&nbsp;км от&nbsp;МКАД</div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="mx-auto">
-                        <div class="w-full max-w-sm h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium">
-                            Карта или фото офиса
-                            <br>
-                            350x250px
-                        </div>
+                    <div class="mt-8">
+                        <a href="#forma" class="btn-cta inline-flex items-center text-lg px-6 py-3">
+                            <i class="ri-customer-service-line mr-2"></i>
+                            Заказать звонок
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right - Map -->
+                <div class="flex items-stretch">
+                    <div class="w-full rounded-lg overflow-hidden shadow-lg" style="height: 100%;">
+                        <iframe 
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A3d980aa3b8bfcfe193bc2690a40dc8c4b5351a27f6c00c95993456caa0462487&amp;source=constructor" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0"
+                            style="border-radius: 8px;">
+                        </iframe>
                     </div>
                 </div>
             </div>
