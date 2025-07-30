@@ -392,59 +392,29 @@
             }
         }
 
-        /* Trust sections styles */
-        .trust-section {
-            background-color: var(--bg-white);
+        /* Guarantee section styles */
+        .guarantee-section {
+            position: relative;
         }
 
-        .trust-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .trust-block {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .trust-image {
-            width: 100%;
-            max-width: 300px;
-            height: 200px;
-            background-color: #e5e7eb;
-            border-radius: 12px;
-            display: flex;
+        .guarantee-content {
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: #6b7280;
-            font-weight: 500;
-            font-size: 14px;
         }
 
-        .trust-image.map {
-            max-width: 400px;
-            height: 300px;
-        }
-
-        .trust-list {
+        .guarantee-list {
             list-style: none;
             padding: 0;
-            text-align: left;
-            max-width: 350px;
-            margin: 0 auto;
         }
 
-        .trust-list li {
+        .guarantee-list li {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 12px;
             font-size: 16px;
             color: var(--text-primary);
+            line-height: 1.6;
         }
 
-        .trust-list li:before {
+        .guarantee-list li:before {
             content: "✓";
             color: var(--success-green);
             font-weight: bold;
@@ -454,24 +424,115 @@
             margin-top: 2px;
         }
 
-        @media (max-width: 768px) {
-            .trust-grid {
+        /* Coverage section styles */
+        .coverage-section {
+            position: relative;
+        }
+
+        .coverage-content {
+            align-items: center;
+        }
+
+        .coverage-content-full {
+            align-items: flex-start;
+        }
+
+        .coverage-map-large {
+            position: relative;
+        }
+
+        .coverage-benefits-full {
+            padding-left: 1rem;
+        }
+
+        .coverage-list,
+        .coverage-list-full {
+            list-style: none;
+            padding: 0;
+        }
+
+        .coverage-list li,
+        .coverage-list-full li {
+            display: flex;
+            align-items: flex-start;
+            font-size: 16px;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .coverage-list-full li {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .coverage-list li:before,
+        .coverage-list-full li:before {
+            content: "✓";
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .coverage-list-full li:before {
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        @media (max-width: 1024px) {
+            .guarantee-content,
+            .coverage-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                text-align: center;
             }
 
-            .trust-block {
-                padding: 1.5rem;
+            .coverage-content-full {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .trust-image {
-                max-width: 280px;
-                height: 180px;
+            .guarantee-benefits,
+            .coverage-benefits {
+                text-align: center;
             }
 
-            .trust-image.map {
-                max-width: 320px;
-                height: 240px;
+            .coverage-benefits-full {
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .guarantee-list,
+            .coverage-list,
+            .coverage-list-full {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Map styles */
+        .coverage-map iframe {
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .guarantee-section,
+            .coverage-section {
+                padding: 3rem 0;
+            }
+
+            .guarantee-image div {
+                height: 200px;
+            }
+
+            .coverage-map div {
+                height: 250px;
+                max-width: 100%;
+            }
+
+            .coverage-map-large div {
+                height: 300px;
             }
         }
     </style>
@@ -1111,44 +1172,91 @@
         </div>
     </section>
     
-    <!-- Trust Sections: Guarantee and Coverage -->
-    <section class="trust-section py-16 lg:py-24">
+    <!-- Guarantee Section -->
+    <section class="guarantee-section py-16 lg:py-24 bg-white">
         <div class="container-custom">
-            <div class="trust-grid">
-                <!-- Guarantee Section -->
-                <div class="trust-block">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                        Гарантия до 2 лет на все работы
-                    </h2>
-                    <div class="trust-image">
-                        Гарантийный талон
-                        <br>
-                        300x200px
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    Гарантия до 2 лет на все работы
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Мы настолько уверены в качестве нашей работы, что даем расширенную гарантию. 
+                    Это не просто обещание — это официальное обязательство перед каждым клиентом.
+                </p>
+                
+                <div class="guarantee-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="guarantee-image mx-auto">
+                        <div class="w-full max-w-sm h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium">
+                            Гарантийный талон
+                            <br>
+                            300x200px
+                        </div>
                     </div>
-                    <ul class="trust-list">
-                        <li>Бесплатное устранение повторных поломок</li>
-                        <li>Гарантия на запчасти и работы</li>
-                        <li>Официальное оформление документов</li>
-                        <li>Прозрачные условия обслуживания</li>
-                    </ul>
+                    
+                    <div class="guarantee-benefits text-left">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                            Почему стоит выбрать нас:
+                        </h3>
+                        <ul class="guarantee-list space-y-3">
+                            <li>Бесплатное устранение повторных поломок</li>
+                            <li>Гарантия на запчасти и работы</li>
+                            <li>Официальное оформление документов</li>
+                            <li>Прозрачные условия обслуживания</li>
+                        </ul>
+                        <div class="mt-6">
+                            <a href="#forma" class="btn-cta inline-flex items-center">
+                                <i class="ri-shield-check-line mr-2"></i>
+                                Получить гарантию
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Coverage Section -->
+    <section class="coverage-section py-16 lg:py-24 bg-gray-50">
+        <div class="container-custom">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    Выезд по Москве и Московской области
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Наши мастера работают во всех районах столицы и ближайшего Подмосковья. 
+                    Быстрый выезд и качественный ремонт на месте.
+                </p>
+            </div>
+            
+            <div class="coverage-content-full grid lg:grid-cols-5 gap-8 items-start">
+                <div class="coverage-map-large lg:col-span-3">
+                    <div class="w-full h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg">
+                        <iframe 
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A3d980aa3b8bfcfe193bc2690a40dc8c4b5351a27f6c00c95993456caa0462487&amp;source=constructor" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0"
+                            style="border-radius: 8px;">
+                        </iframe>
+                    </div>
                 </div>
                 
-                <!-- Coverage Section -->
-                <div class="trust-block">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                        Выезд по Москве и Московской области
-                    </h2>
-                    <div class="trust-image map">
-                        Карта с радиусом обслуживания
-                        <br>
-                        400x300px
-                    </div>
-                    <ul class="trust-list">
+                <div class="coverage-benefits-full lg:col-span-2">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                        Зоны обслуживания:
+                    </h3>
+                    <ul class="coverage-list-full space-y-4 mb-8">
                         <li>Работаем во всех районах Москвы</li>
                         <li>Выезжаем в течение 30 минут</li>
                         <li>Есть мастера во всех районах</li>
                         <li>Обслуживаем до 15 км за МКАД</li>
                     </ul>
+                    <div>
+                        <a href="#forma" class="btn-cta inline-flex items-center text-lg px-6 py-3">
+                            <i class="ri-map-pin-line mr-2"></i>
+                            Вызвать мастера
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
