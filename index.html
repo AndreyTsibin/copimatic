@@ -536,14 +536,26 @@
             font-size: 16px;
             color: var(--text-primary);
             line-height: 1.6;
+            position: relative;
+            padding-left: 30px;
         }
 
         .contract-list li:before {
-            content: "📄";
-            font-size: 18px;
-            margin-right: 12px;
-            flex-shrink: 0;
-            margin-top: 2px;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 20px;
+            height: 20px;
+            background: none;
+        }
+
+        .contract-list li i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            font-size: 20px;
+            color: var(--primary-blue);
         }
 
         @media (max-width: 768px) {
@@ -1345,10 +1357,10 @@
                             Процесс работы:
                         </h3>
                         <ul class="contract-list space-y-3 mb-6">
-                            <li>Заключение договора до начала работ</li>
-                            <li>Фиксированная цена без доплат</li>
-                            <li>Полная отчетность по работам</li>
-                            <li>Официальные документы для бухгалтерии</li>
+                            <li><i class="ri-file-text-line"></i>Заключение договора до начала работ</li>
+                            <li><i class="ri-money-dollar-circle-line"></i>Фиксированная цена без доплат</li>
+                            <li><i class="ri-file-list-3-line"></i>Полная отчетность по работам</li>
+                            <li><i class="ri-folder-line"></i>Официальные документы для бухгалтерии</li>
                         </ul>
                         
                         <h4 class="text-lg font-semibold text-gray-900 mb-4">
