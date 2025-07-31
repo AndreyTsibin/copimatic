@@ -16,13 +16,19 @@ This is a high-conversion landing page for a printer/MFU/plotter repair service.
 
 Since this is a static HTML/CSS/JS project designed for Tilda integration, there are no build commands or package scripts. Development workflow:
 
-1. **Local Development:** Open `index.html` directly in browser
+1. **Local Development:** Open `index.html` directly in browser or use a local server
 2. **Git Workflow:**
    - Work in `developed` branch for all development
    - Merge to `main` only for production-ready versions
    - `git checkout developed` - switch to development branch
    - `git push origin developed` - push development changes
-3. **Tilda Integration:** 
+3. **Testing:** 
+   - Test all breakpoints: 320px, 768px, 1024px, 1920px
+   - Verify all CTA links point to `#forma`
+   - Check JavaScript console for errors
+   - Test countdown timer functionality
+   - Verify tab switching in services section
+4. **Tilda Integration:** 
    - Copy `index.html` content → Tilda T123 "HTML-код" block
    - Copy `script.js` content → Tilda Site Settings → "HTML-код для вставки внутрь head"
 
@@ -30,13 +36,14 @@ Since this is a static HTML/CSS/JS project designed for Tilda integration, there
 
 ### File Structure
 ```
-project/
+copimatic/
 ├── index.html          # Main HTML for T123 block integration
 ├── script.js          # JavaScript for Tilda head injection  
-└── data/              # Static data files (when created)
-    ├── Бренды.html    # Brand logos HTML list
-    ├── Неисправности.html # Issues with pricing data
-    └── Услуги.html    # Services categorized by equipment type
+├── images/            # Image assets directory
+├── README.md          # Project documentation
+├── CLAUDE.md          # Claude Code instructions
+└── doc/               # Documentation and design assets
+    └── best-design/   # Design reference images (PNG files)
 ```
 
 ### Tilda Integration Constraints
@@ -51,15 +58,15 @@ project/
 **Color Palette (CSS Variables):**
 ```css
 :root {
-  --primary-blue: #2563eb;
+  --primary-blue: #2089FF;
   --primary-blue-dark: #1d4ed8;
-  --accent-orange: #ea580c;
-  --accent-orange-dark: #dc2626;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
+  --accent-orange: #2089FF;
+  --accent-orange-dark: #1d4ed8;
+  --text-primary: #151A42;
+  --text-secondary: #626262;
   --bg-white: #ffffff;
   --bg-gray: #f9fafb;
-  --success-green: #059669;
+  --success-green: #10B981;
   --warning-yellow: #d97706;
 }
 ```
@@ -94,16 +101,19 @@ project/
 - **UI Animations** - Hover effects and micro-interactions
 
 **Key Functions:**
-- `startCountdown()` - 24-hour countdown timer
-- `switchTab(tabName)` - Service tab switching
-- Smooth scroll navigation for menu items
+- `startCountdown()` - 24-hour countdown timer with automatic reset
+- `switchTab(tabName)` - Service tab switching with fade animations
+- `initSmoothScroll()` - Smooth scroll navigation for menu items
+- `initStickyHeader()` - Sticky header behavior management
+- CTA handlers for `#forma` modal integration
 
-### Data Integration Strategy
+### Current Implementation
 
-The project uses static HTML files in the `data/` directory as data sources:
-- **Brand data:** Parse `data/Бренды.html` for brand logo list
-- **Issues data:** Parse `data/Неисправности.html` for problems with pricing
-- **Services data:** Parse `data/Услуги.html` for three-tier service structure
+The project is a complete single-page landing with all content directly embedded in `index.html`:
+- **Brand logos:** Integrated into marquee section
+- **Service issues:** Built into interactive grid with pricing
+- **Service categories:** Implemented as tabbed interface with detailed pricing
+- **Design references:** Available in `doc/best-design/` directory for visual consistency
 
 ### Mobile-First Responsive Design
 
@@ -121,11 +131,11 @@ The project uses static HTML files in the `data/` directory as data sources:
 ### Development Workflow
 
 **Creating New Sections:**
-1. Follow the component structure in ARCHITECTURE.md
-2. Use established CSS classes and color variables
-3. Ensure all CTAs link to `#forma`
-4. Test responsive behavior across all breakpoints
-5. Maintain Tilda compatibility (no reserved classes)
+1. Use established CSS classes and color variables
+2. Ensure all CTAs link to `#forma`
+3. Test responsive behavior across all breakpoints
+4. Maintain Tilda compatibility (no reserved classes)
+5. Follow the modular structure of existing sections
 
 **Performance Considerations:**
 - Inline critical CSS for above-the-fold content
@@ -136,7 +146,7 @@ The project uses static HTML files in the `data/` directory as data sources:
 ### External Dependencies
 
 - **Tailwind CSS:** Latest version via CDN
-- **Google Fonts:** Inter font family
+- **Google Fonts:** Manrope font family
 - **Remix Icons:** For UI icons (https://remixicon.com/)
 - **Tilda Modal System:** External `#forma` modal integration
 - **Tilda Footer:** External footer component integration
@@ -144,7 +154,7 @@ The project uses static HTML files in the `data/` directory as data sources:
 ### Important Notes
 
 - **All text content is in Russian** as this is for the Russian market
-- **Claude Code responses must always be in Russian** - communicate with developers in Russian
+- **Claude Code responses must always be in Russian** - communicate with users in Russian language
 - **No package.json or build process** - this is pure static HTML/CSS/JS
 - **All CTA buttons must link to `#forma`** for Tilda modal integration
 - **Styles must be inlined in HTML** using `<style>` tags for Tilda compatibility
@@ -157,11 +167,16 @@ The project uses static HTML files in the `data/` directory as data sources:
 2. Create `script.js` with JavaScript functionality
 3. Create `data/` directory with HTML data files as needed
 
-**Testing Workflow:**
+**Testing Checklist:**
 - Open `index.html` directly in browser for local testing
 - Test all breakpoints: 320px, 768px, 1024px, 1920px
 - Verify all CTA links point to `#forma`
+- Test countdown timer functionality (24-hour reset)
+- Test service tab switching animations
+- Test smooth scroll navigation
 - Check JavaScript console for errors
+- Verify responsive grid layouts collapse properly
+- Test hover effects on cards and buttons
 
 **Integration with Tilda:**
 - Copy `index.html` content → Tilda T123 "HTML-код" block  
@@ -170,8 +185,8 @@ The project uses static HTML files in the `data/` directory as data sources:
 
 ### Critical Implementation Rules
 
-**Data Integration Priority:**
-When creating sections that require data (brands, issues, services), always check if corresponding HTML files exist in `data/` directory first. If they don't exist, create placeholder content and note that real data integration is pending.
+**Content Development Priority:**
+When modifying sections with dynamic content (brands, issues, services), reference the existing implementation in `index.html` and maintain the established patterns. Use design references from `doc/best-design/` to ensure visual consistency.
 
 **Conversion-First Development:**
 - Every section must have clear conversion goal (CTA button)
