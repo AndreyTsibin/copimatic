@@ -173,8 +173,8 @@
 
         @media (max-width: 960px) {
             .section-spacing {
-                padding-top: 60px;
-                padding-bottom: 60px;
+                padding-top: 50px;
+                padding-bottom: 50px;
             }
         }
         
@@ -496,6 +496,29 @@
 
         .service-item.hidden-mobile {
             display: flex;
+        }
+
+        /* Hide images on small screens (320px - 424px) */
+        @media (min-width: 320px) and (max-width: 424px) {
+            /* Hide hero image */
+            .order-2 .aspect-square {
+                display: none !important;
+            }
+            
+            /* Hide printer delivery image */
+            .discount-section .text-center {
+                display: none !important;
+            }
+            
+            /* Hide guarantee image */
+            .guarantee-image {
+                display: none !important;
+            }
+            
+            /* Hide contract image */
+            .contract-image {
+                display: none !important;
+            }
         }
 
         /* Hide CTA button in header only for very small screens (320px - 425px) */
@@ -921,7 +944,6 @@
         @media (max-width: 768px) {
             .section-subtitle {
                 font-size: 12px;
-                padding: 3px 10px;
                 gap: 6px;
             }
 
@@ -1027,7 +1049,7 @@
     </header>
     
     <!-- Hero Section -->
-    <section class="relative bg-white" style="padding: 90px 0;">
+    <section class="section-spacing relative bg-white">
         <div class="container-custom">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Content column -->
