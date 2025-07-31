@@ -20,8 +20,6 @@
         :root {
             --primary-blue: #2089FF;
             --primary-blue-dark: #1d4ed8;
-            --accent-orange: #2089FF;
-            --accent-orange-dark: #1d4ed8;
             --text-primary: #151A42;
             --text-secondary: #626262;
             --bg-white: #ffffff;
@@ -106,10 +104,6 @@
             font-weight: 500;
         }
         
-        .title {
-            font-size: 50px;
-            line-height: 1.2;
-        }
         
         /* Header styles */
         header {
@@ -138,6 +132,42 @@
             .section-spacing {
                 padding-top: 80px;
                 padding-bottom: 80px;
+            }
+            
+            /* Исправление кнопок в hero на разрешении 1024px */
+            .hero-buttons-1024 {
+                flex-direction: column !important;
+            }
+            
+            .hero-buttons-1024 a {
+                font-size: 14px !important;
+                padding: 10px 20px !important;
+                white-space: nowrap !important;
+            }
+            
+            /* Исправление отступов guarantee-list на разрешении 1024px */
+            .guarantee-list {
+                max-width: none !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+            }
+            
+            /* Исправление переноса цен в service-price на разрешении 1024px */
+            .service-price {
+                white-space: nowrap !important;
+                min-width: 80px !important;
+                flex-shrink: 0 !important;
+                font-size: 16px !important;
+                text-align: right !important;
+            }
+            
+            /* Исправление отступов contract-list на разрешении 1024px */
+            .contract-list {
+                max-width: none !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
             }
         }
 
@@ -169,18 +199,6 @@
             transform: translateY(-2px);
         }
         
-        .equipment-placeholder {
-            width: calc(100% - 20px);
-            height: 150px;
-            background-color: #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-weight: 500;
-            margin: 10px;
-            border-radius: 8px;
-        }
         
         /* Brand marquee styles */
         .brand-marquee {
@@ -480,8 +498,56 @@
             display: flex;
         }
 
+        /* Hide CTA button in header only for very small screens (320px - 425px) */
+        @media (max-width: 425px) {
+            header .btn-cta {
+                display: none !important;
+            }
+            
+            /* Header height control for mobile */
+            header {
+                height: 60px !important;
+                max-height: 60px !important;
+            }
+            
+            header .container-custom {
+                padding: 0 20px !important;
+                height: 60px !important;
+            }
+            
+            header .flex.items-center.justify-between {
+                padding: 0 !important;
+                height: 60px !important;
+                min-height: 60px !important;
+            }
+            
+            /* Logo adjustments for mobile */
+            header .flex.items-center a {
+                font-size: 16px !important;
+                gap: 8px !important;
+            }
+            
+            header .w-10.h-10 {
+                width: 20px !important;
+                height: 20px !important;
+            }
+            
+            header .w-10.h-10 i {
+                font-size: 12px !important;
+            }
+            
+            /* Mobile menu button adjustments */
+            header button {
+                padding: 4px !important;
+            }
+            
+            header button i {
+                font-size: 18px !important;
+            }
+        }
+
         /* Mobile tabs responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 424px) {
             .services-tabs {
                 flex-direction: column;
                 border-bottom: none;
@@ -494,12 +560,6 @@
                 text-align: left;
             }
 
-            .tab-button.active {
-                background-color: var(--button-bg);
-                color: white !important;
-                border-bottom-color: var(--button-bg);
-                box-shadow: 0 0 15px rgba(32, 137, 255, 0.3);
-            }
 
             .tabs-container {
                 min-height: 300px;
@@ -526,8 +586,44 @@
                 display: block;
             }
 
-            .service-item:hover {
-                transform: none;
+        }
+        
+        /* Скрытие изображений на планшетах от 425px до 767px */
+        @media (min-width: 425px) and (max-width: 768px) {
+            /* Скрытие hero изображения */
+            .order-2 {
+                display: none;
+            }
+            
+            /* Скрытие изображения доставки принтеров */
+            .discount-section .text-center {
+                display: none;
+            }
+            
+            /* Скрытие изображения гарантии */
+            .guarantee-image {
+                display: none;
+            }
+            
+            /* Скрытие изображения договора */
+            .contract-image {
+                display: none;
+            }
+            
+            /* Табы на всю ширину */
+            .services-tabs {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            
+            .tab-button {
+                flex: 1;
+                text-align: center;
+                margin: 0;
+                border-radius: 8px 8px 0 0;
+                border-bottom: none;
             }
         }
 
@@ -758,7 +854,7 @@
 
         /* Subtitle with icon styles */
         .section-subtitle {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 8px;
             font-size: 14px;
@@ -767,8 +863,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 30px;
+            margin-left: 0;
+            margin-right: auto;
             padding: 0px;
             border-radius: 20px;
+            width: fit-content;
         }
         
         /* Unique colors for each section subtitle */
@@ -869,6 +968,7 @@
             color: #2089FF;
             transform: translateY(-1px);
         }
+
     </style>
 </head>
 <body class="bg-white">
@@ -945,7 +1045,7 @@
                     </div>
                     
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 mb-20">
+                    <div class="flex flex-col lg:flex-row gap-4 mb-20 hero-buttons-1024">
                         <a href="#forma" class="btn-cta inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white rounded-lg transition-all duration-300 shadow-lg transform">
                             <i class="ri-tools-line mr-2"></i>
                             Бесплатная диагностика
@@ -1108,7 +1208,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Застряла бумага</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Механическое повреждение бумаги или неправильная подача</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 550 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 550 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
@@ -1117,7 +1217,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Шумит</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Износ подшипников или неисправность валов</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 500 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 500 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
@@ -1126,7 +1226,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Зажевывает бумагу</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Проблемы с роликами подачи бумаги</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 550 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 550 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
@@ -1135,7 +1235,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Берет несколько листов</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Износ разделительных прокладок</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card">
@@ -1144,7 +1244,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Не берет бумагу</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Сломанные датчики или ролики подачи</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card hidden-issues">
@@ -1153,7 +1253,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Не включается</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Проблемы с блоком питания или платой</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 900 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 900 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card hidden-issues">
@@ -1162,7 +1262,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Выдает ошибку</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Программные сбои или счетчики</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 400 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 400 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card hidden-issues">
@@ -1171,7 +1271,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Мигают кнопки</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Неисправность панели управления</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 400 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 400 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card hidden-issues">
@@ -1180,7 +1280,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Полосы при печати</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Загрязнение валов или ленты передачи</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 ₽</div>
                 </a>
                 
                 <a href="#forma" class="issue-card hidden-issues">
@@ -1189,7 +1289,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #151A42;">Грязная печать</h3>
                     <p class="text-sm mb-3" style="color: #626262;">Нуждается в чистке печатающей головки</p>
-                    <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
+                    <div class="text-lg font-bold" style="color: #151A42;">от 600 ₽</div>
                 </a>
             </div>
             
@@ -1221,7 +1321,7 @@
                         <div class="mb-6">
                             <div class="text-sm font-medium mb-2" style="color: #626262;">До конца акции:</div>
                             <div id="countdown" class="text-3xl lg:text-4xl font-bold" style="color: #151A42;">
-                                23:59:45
+                                01:00:00
                             </div>
                         </div>
                         
@@ -1275,107 +1375,107 @@
                     <div class="services-grid">
                         <a href="#forma" class="service-item">
                             <span class="service-name">Сброс ошибки</span>
-                            <span class="service-price">400 руб</span>
+                            <span class="service-price">400 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Вывод тракта отработанных чернил</span>
-                            <span class="service-price">380 руб</span>
+                            <span class="service-price">380 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Извлечение посторонних предметов с разборкой</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Устранение замятия бумаги с разборкой</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Устранение замятия бумаги без разборки</span>
-                            <span class="service-price">260 руб</span>
+                            <span class="service-price">260 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Извлечение посторонних предметов без разборки</span>
-                            <span class="service-price">260 руб</span>
+                            <span class="service-price">260 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Профилактика</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Регулировка / калибровка</span>
-                            <span class="service-price">540 руб</span>
+                            <span class="service-price">540 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт автоподатчика</span>
-                            <span class="service-price">1070 руб</span>
+                            <span class="service-price">1070 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт блока питания</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт датчиков</span>
-                            <span class="service-price">760 руб</span>
+                            <span class="service-price">760 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт каретки</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт парковки</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт электронной платы</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт шлейфа</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт / регулировка сканера</span>
-                            <span class="service-price">480 руб</span>
+                            <span class="service-price">480 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт системы подачи бумаги</span>
-                            <span class="service-price">430 руб</span>
+                            <span class="service-price">430 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт механики</span>
-                            <span class="service-price">910 руб</span>
+                            <span class="service-price">910 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Чистка печатающей головки</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена энкодера</span>
-                            <span class="service-price">720 руб</span>
+                            <span class="service-price">720 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Сброс счетчика памперса</span>
-                            <span class="service-price">540 руб</span>
+                            <span class="service-price">540 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена шлейфа СНПЧ</span>
-                            <span class="service-price">480 руб</span>
+                            <span class="service-price">480 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена резервуара</span>
-                            <span class="service-price">430 руб</span>
+                            <span class="service-price">430 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Профилактика СНПЧ</span>
-                            <span class="service-price">240 руб</span>
+                            <span class="service-price">240 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена узла подачи бумаги</span>
-                            <span class="service-price">960 руб</span>
+                            <span class="service-price">960 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена печатающей головки</span>
-                            <span class="service-price">1750 руб</span>
+                            <span class="service-price">1750 ₽</span>
                         </a>
                     </div>
                     <button class="show-more-btn" onclick="toggleServices('printers')">
@@ -1388,95 +1488,95 @@
                     <div class="services-grid">
                         <a href="#forma" class="service-item">
                             <span class="service-name">Сброс ошибки</span>
-                            <span class="service-price">400 руб</span>
+                            <span class="service-price">400 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Вывод тракта отработанных чернил</span>
-                            <span class="service-price">370 руб</span>
+                            <span class="service-price">370 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Извлечение посторонних предметов с разборкой</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Устранение замятия бумаги с разборкой</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Устранение замятия бумаги без разборки</span>
-                            <span class="service-price">260 руб</span>
+                            <span class="service-price">260 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Извлечение посторонних предметов без разборки</span>
-                            <span class="service-price">260 руб</span>
+                            <span class="service-price">260 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Профилактика</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Регулировка / калибровка</span>
-                            <span class="service-price">540 руб</span>
+                            <span class="service-price">540 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт автоподатчика</span>
-                            <span class="service-price">1090 руб</span>
+                            <span class="service-price">1090 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт блока питания</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт датчиков</span>
-                            <span class="service-price">760 руб</span>
+                            <span class="service-price">760 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт каретки</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт парковки</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт электронной платы</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт шлейфа</span>
-                            <span class="service-price">1020 руб</span>
+                            <span class="service-price">1020 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт / регулировка сканера</span>
-                            <span class="service-price">480 руб</span>
+                            <span class="service-price">480 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт системы подачи бумаги</span>
-                            <span class="service-price">430 руб</span>
+                            <span class="service-price">430 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт механики</span>
-                            <span class="service-price">910 руб</span>
+                            <span class="service-price">910 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Чистка печатающей головки</span>
-                            <span class="service-price">590 руб</span>
+                            <span class="service-price">590 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена энкодера</span>
-                            <span class="service-price">700 руб</span>
+                            <span class="service-price">700 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Сброс счетчика памперса</span>
-                            <span class="service-price">540 руб</span>
+                            <span class="service-price">540 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена резервуара</span>
-                            <span class="service-price">430 руб</span>
+                            <span class="service-price">430 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена узла подачи бумаги</span>
-                            <span class="service-price">1750 руб</span>
+                            <span class="service-price">1750 ₽</span>
                         </a>
                     </div>
                     <button class="show-more-btn" onclick="toggleServices('mfu')">
@@ -1489,103 +1589,103 @@
                     <div class="services-grid">
                         <a href="#forma" class="service-item">
                             <span class="service-name">Сброс ошибки</span>
-                            <span class="service-price">420 руб</span>
+                            <span class="service-price">420 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Вывод тракта отработанных чернил</span>
-                            <span class="service-price">860 руб</span>
+                            <span class="service-price">860 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Извлечение посторонних предметов с разборкой</span>
-                            <span class="service-price">1190 руб</span>
+                            <span class="service-price">1190 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Устранение замятия бумаги с разборкой</span>
-                            <span class="service-price">1190 руб</span>
+                            <span class="service-price">1190 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Извлечение посторонних предметов без разборки</span>
-                            <span class="service-price">860 руб</span>
+                            <span class="service-price">860 ₽</span>
                         </a>
                         <a href="#forma" class="service-item">
                             <span class="service-name">Устранение замятия бумаги без разборки</span>
-                            <span class="service-price">860 руб</span>
+                            <span class="service-price">860 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Профилактика</span>
-                            <span class="service-price">1080 руб</span>
+                            <span class="service-price">1080 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Регулировка / калибровка</span>
-                            <span class="service-price">970 руб</span>
+                            <span class="service-price">970 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт автоподатчика</span>
-                            <span class="service-price">1190 руб</span>
+                            <span class="service-price">1190 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт блока питания</span>
-                            <span class="service-price">1190 руб</span>
+                            <span class="service-price">1190 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт датчиков</span>
-                            <span class="service-price">1190 руб</span>
+                            <span class="service-price">1190 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт каретки</span>
-                            <span class="service-price">1080 руб</span>
+                            <span class="service-price">1080 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт парковки</span>
-                            <span class="service-price">1080 руб</span>
+                            <span class="service-price">1080 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт электронной платы</span>
-                            <span class="service-price">1080 руб</span>
+                            <span class="service-price">1080 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт шлейфа</span>
-                            <span class="service-price">1300 руб</span>
+                            <span class="service-price">1300 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт / регулировка сканера</span>
-                            <span class="service-price">970 руб</span>
+                            <span class="service-price">970 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт системы подачи бумаги</span>
-                            <span class="service-price">1080 руб</span>
+                            <span class="service-price">1080 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Ремонт механики</span>
-                            <span class="service-price">1300 руб</span>
+                            <span class="service-price">1300 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Чистка печатающей головки</span>
-                            <span class="service-price">1000 руб</span>
+                            <span class="service-price">1000 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена энкодера</span>
-                            <span class="service-price">700 руб</span>
+                            <span class="service-price">700 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Сброс счетчика памперса</span>
-                            <span class="service-price">970 руб</span>
+                            <span class="service-price">970 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена шлейфа СНПЧ</span>
-                            <span class="service-price">1190 руб</span>
+                            <span class="service-price">1190 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена резервуара</span>
-                            <span class="service-price">970 руб</span>
+                            <span class="service-price">970 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Профилактика СНПЧ</span>
-                            <span class="service-price">1300 руб</span>
+                            <span class="service-price">1300 ₽</span>
                         </a>
                         <a href="#forma" class="service-item hidden-mobile">
                             <span class="service-name">Замена узла подачи бумаги</span>
-                            <span class="service-price">1700 руб</span>
+                            <span class="service-price">1700 ₽</span>
                         </a>
                     </div>
                     <button class="show-more-btn" onclick="toggleServices('plotters')">
@@ -1786,7 +1886,7 @@
                     </div>
                     
                     <div class="mt-8">
-                        <a href="#forma" class="btn-cta inline-flex items-center text-lg px-6 py-3">
+                        <a href="#forma" class="btn-cta inline-flex items-center px-6 py-3">
                             <i class="ri-customer-service-line mr-2"></i>
                             Заказать звонок
                         </a>
