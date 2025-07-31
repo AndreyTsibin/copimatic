@@ -33,6 +33,29 @@
             /* Универсальная переменная для фона кнопок */
             --button-bg: #2089FF;
             --button-bg-hover: #1d4ed8;
+            
+            /* Переменные для изображений */
+            --img-yandex: url('images/yandex.png');
+            --img-2gis: url('images/2gis.png');
+            --img-hero: url('images/hero-image.png');
+            --img-printer: url('images/printer.png');
+            --img-mfu: url('images/mfu.png');
+            --img-plotter: url('images/plotter.png');
+            --img-printer-delivery: url('images/printer-delivery.jpg');
+            --img-guarantee: url('images/guarantee.png');
+            --img-contract: url('images/contract.png');
+            
+            /* Переменные для логотипов брендов */
+            --img-hp-logo: url('images/hp-logo.png');
+            --img-epson-logo: url('images/epson-logo.png');
+            --img-canon-logo: url('images/canon-logo.png');
+            --img-pantum-logo: url('images/pantum-logo.png');
+            --img-kyocera-logo: url('images/kyocera-logo.png');
+            --img-brother-logo: url('images/brother-logo.png');
+            --img-xerox-logo: url('images/xerox-logo.png');
+            --img-samsung-logo: url('images/samsung-logo.png');
+            --img-oki-logo: url('images/oki-logo.png');
+            --img-panasonic-logo: url('images/panasonic-logo.png');
         }
         
         body, .container-custom, .card, .btn-cta, .equipment-card, .issue-card, .service-item, .contract-list, .guarantee-list, .coverage-list {
@@ -46,23 +69,23 @@
         }
         
         .btn-cta {
-            background-color: var(--button-bg) !important;
+            background-color: var(--button-bg);
             color: white !important;
-            padding: 12px 24px !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
             text-decoration: none !important;
-            display: inline-block !important;
-            transition: all 0.3s ease !important;
-            border: none !important;
-            cursor: pointer !important;
-            box-shadow: 0 0 20px rgba(32, 137, 255, 0.3) !important;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(32, 137, 255, 0.3);
         }
         
         .btn-cta:hover {
-            background-color: var(--button-bg-hover) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
+            background-color: var(--button-bg-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4);
         }
         
         .card {
@@ -91,8 +114,8 @@
         /* Header styles */
         header {
             backdrop-filter: blur(10px);
-            transform: translateY(0) !important;
-            transition: none !important;
+            transform: translateY(0);
+            transition: none;
         }
         
         /* Mobile menu animation */
@@ -107,36 +130,43 @@
         
         /* Section spacing */
         .section-spacing {
-            padding-top: 100px;
-            padding-bottom: 100px;
+            padding-top: 120px;
+            padding-bottom: 120px;
         }
         
-        @media (min-width: 1024px) {
+        @media (max-width: 1024px) {
             .section-spacing {
-                padding-top: 100px;
-                padding-bottom: 100px;
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .section-spacing {
+                padding-top: 60px;
+                padding-bottom: 60px;
             }
         }
         
         /* Equipment cards */
         .equipment-card {
-            background-color: var(--bg-white) !important;
-            border-radius: 12px !important;
-            border: 1px solid #E6E6E6 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
-            transition: all 0.3s ease !important;
-            overflow: hidden !important;
-            text-decoration: none !important;
-            display: block !important;
-            color: inherit !important;
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            border: 1px solid #E6E6E6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
         
         .equipment-card:hover {
-            border: 1px solid white !important;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-            color: inherit !important;
-            text-decoration: none !important;
-            transform: translateY(-2px) !important;
+            border: 1px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            color: inherit;
+            text-decoration: none;
+            transform: translateY(-2px);
         }
         
         .equipment-placeholder {
@@ -210,6 +240,8 @@
             font-weight: 500;
             font-size: 14px;
             flex-shrink: 0;
+            height: var(--brand-logo-height);
+            width: 150px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
         }
@@ -221,25 +253,25 @@
         
         /* Issues grid styles */
         .issue-card {
-            background-color: var(--bg-white) !important;
-            border-radius: 12px !important;
-            padding: 20px !important;
-            border: 1px solid #E6E6E6 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
-            transition: all 0.3s ease !important;
-            text-decoration: none !important;
-            color: inherit !important;
-            display: block !important;
-            cursor: pointer !important;
-            text-align: center !important;
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #E6E6E6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+            text-align: center;
         }
         
         .issue-card:hover {
-            border: 1px solid white !important;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-            color: inherit !important;
-            text-decoration: none !important;
-            transform: translateY(-2px) !important;
+            border: 1px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            color: inherit;
+            text-decoration: none;
+            transform: translateY(-2px);
         }
         
         .issue-icon {
@@ -279,75 +311,75 @@
         }
 
         .tab-button {
-            padding: 12px 24px !important;
-            border: none !important;
-            background: transparent !important;
-            font-size: 16px !important;
-            font-weight: 600 !important;
-            color: #626262 !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            border-radius: 8px !important;
-            flex: 1 !important;
-            max-width: 200px !important;
-            box-shadow: 0 0 10px rgba(98, 98, 98, 0.2) !important;
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 600;
+            color: #626262;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            flex: 1;
+            max-width: 200px;
+            box-shadow: 0 0 10px rgba(98, 98, 98, 0.2);
         }
 
         .tab-button.active {
-            background-color: var(--button-bg) !important;
-            color: white !important;
-            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3) !important;
+            background-color: var(--button-bg);
+            color: white;
+            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3);
         }
 
         /* Специальные стили для разных табов */
         .tab-button[onclick="switchTab('printers')"].active {
-            background-color: var(--button-bg) !important;
-            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3) !important;
+            background-color: var(--button-bg);
+            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3);
         }
 
         .tab-button[onclick="switchTab('mfu')"].active {
-            background-color: #10B981 !important;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+            background-color: #10B981;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
         }
 
         .tab-button[onclick="switchTab('plotters')"].active {
-            background-color: #EC4899 !important;
-            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3) !important;
+            background-color: #EC4899;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
         }
 
         /* Ховер эффекты для неактивных табов */
         .tab-button[onclick*="printers"]:hover:not(.active) {
-            background-color: var(--button-bg) !important;
-            color: white !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.3) !important;
+            background-color: var(--button-bg);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.3);
         }
 
         .tab-button[onclick*="mfu"]:hover:not(.active) {
-            background-color: #10B981 !important;
-            color: white !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+            background-color: #10B981;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
 
         .tab-button[onclick*="plotters"]:hover:not(.active) {
-            background-color: #EC4899 !important;
-            color: white !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3) !important;
+            background-color: #EC4899;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
         }
 
         /* Ховер эффекты для активных табов - более темные оттенки */
         .tab-button[onclick*="printers"]:hover.active {
-            background-color: var(--button-bg-hover) !important;
+            background-color: var(--button-bg-hover);
         }
 
         .tab-button[onclick*="mfu"]:hover.active {
-            background-color: #059669 !important;
+            background-color: #059669;
         }
 
         .tab-button[onclick*="plotters"]:hover.active {
-            background-color: #db2777 !important;
+            background-color: #db2777;
         }
 
         .tabs-container {
@@ -387,15 +419,15 @@
         }
 
         .service-item {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            padding: 16px 20px !important;
-            border-bottom: 1px solid #e5e7eb !important;
-            transition: all 0.3s ease !important;
-            cursor: pointer !important;
-            text-decoration: none !important;
-            color: inherit !important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
         .service-item:nth-child(odd) {
@@ -403,10 +435,10 @@
         }
 
         .service-item:hover {
-            background-color: #f9fafb !important;
-            transform: translateX(5px) !important;
-            color: inherit !important;
-            text-decoration: none !important;
+            background-color: #f9fafb;
+            transform: translateX(5px);
+            color: inherit;
+            text-decoration: none;
         }
 
         .service-item:last-child {
@@ -425,23 +457,23 @@
         }
 
         .show-more-btn {
-            display: none !important;
-            width: 100% !important;
-            padding: 16px !important;
-            background-color: var(--button-bg) !important;
+            display: none;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--button-bg);
             color: white !important;
-            border: none !important;
-            border-radius: 0 0 8px 8px !important;
-            font-weight: 600 !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 0 15px rgba(32, 137, 255, 0.3) !important;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(32, 137, 255, 0.3);
         }
 
         .show-more-btn:hover {
-            background-color: var(--button-bg-hover) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
+            background-color: var(--button-bg-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4);
         }
 
         .service-item.hidden-mobile {
@@ -456,17 +488,17 @@
             }
 
             .tab-button {
-                margin: 0 !important;
-                border-bottom: 1px solid #e5e7eb !important;
-                border-radius: 0 !important;
-                text-align: left !important;
+                margin: 0;
+                border-bottom: 1px solid #e5e7eb;
+                border-radius: 0;
+                text-align: left;
             }
 
             .tab-button.active {
-                background-color: var(--button-bg) !important;
+                background-color: var(--button-bg);
                 color: white !important;
-                border-bottom-color: var(--button-bg) !important;
-                box-shadow: 0 0 15px rgba(32, 137, 255, 0.3) !important;
+                border-bottom-color: var(--button-bg);
+                box-shadow: 0 0 15px rgba(32, 137, 255, 0.3);
             }
 
             .tabs-container {
@@ -491,7 +523,7 @@
             }
 
             .show-more-btn {
-                display: block !important;
+                display: block;
             }
 
             .service-item:hover {
@@ -625,15 +657,15 @@
         
         /* Service area cards styles */
         .service-area-card {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
-            border: 1px solid rgba(0, 0, 0, 0.08) !important;
-            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
         
         .service-area-card:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-            border: 1px solid rgba(32, 137, 255, 0.2) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(32, 137, 255, 0.2);
         }
 
         /* Contract section styles */
@@ -769,7 +801,7 @@
         }
         
         .section-subtitle.contract {
-            color: #BE185D;
+            color: #059669;
         }
         
         .section-subtitle.contacts {
@@ -801,7 +833,7 @@
 
         /* Hidden issues styles */
         .hidden-issues {
-            display: none !important;
+            display: none;
         }
 
         .show-issues-btn {
@@ -828,14 +860,14 @@
 
         /* Phone links styles */
         a[href^="tel:"] {
-            text-decoration: none !important;
-            transition: all 0.3s ease !important;
-            cursor: pointer !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         a[href^="tel:"]:hover {
-            color: #2089FF !important;
-            transform: translateY(-1px) !important;
+            color: #2089FF;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -929,7 +961,7 @@
                         <!-- Yandex Rating -->
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
-                                <img src="images/yandex.png" alt="Яндекс" class="w-full h-full object-contain">
+                                <div style="background-image: var(--img-yandex); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Яндекс"></div>
                             </div>
                             <div>
                                 <div class="flex items-center gap-1 mb-1">
@@ -943,7 +975,7 @@
                         <!-- 2GIS Rating -->
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
-                                <img src="images/2gis.png" alt="2ГИС" class="w-full h-full object-contain">
+                                <div style="background-image: var(--img-2gis); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="2ГИС"></div>
                             </div>
                             <div>
                                 <div class="flex items-center gap-1 mb-1">
@@ -959,7 +991,7 @@
                 <!-- Image column -->
                 <div class="order-2 lg:order-2">
                     <div class="aspect-square rounded-2xl flex items-center justify-center overflow-hidden">
-                        <img src="images/hero-image.png" alt="Мастер с принтером" class="w-full h-full object-contain rounded-2xl">
+                        <div style="background-image: var(--img-hero); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full rounded-2xl" role="img" aria-label="Мастер с принтером"></div>
                     </div>
                 </div>
             </div>
@@ -988,7 +1020,7 @@
                 <!-- Принтеры -->
                 <a href="#forma" class="equipment-card">
                     <div class="h-48 rounded-t-lg overflow-hidden flex items-center justify-center" style="background-color: #CADFF7;">
-                        <img src="images/printer.png" alt="Принтеры" class="w-full h-full object-contain">
+                        <div style="background-image: var(--img-printer); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Принтеры"></div>
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-semibold mb-2" style="color: #151A42;">Принтеры</h3>
@@ -999,7 +1031,7 @@
                 <!-- МФУ -->
                 <a href="#forma" class="equipment-card">
                     <div class="h-48 rounded-t-lg overflow-hidden flex items-center justify-center" style="background-color: #C8E9DF;">
-                        <img src="images/mfu.png" alt="МФУ" class="w-full h-full object-contain">
+                        <div style="background-image: var(--img-mfu); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="МФУ"></div>
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-semibold mb-2" style="color: #151A42;">МФУ</h3>
@@ -1010,7 +1042,7 @@
                 <!-- Плоттеры -->
                 <a href="#forma" class="equipment-card">
                     <div class="h-48 rounded-t-lg overflow-hidden flex items-center justify-center" style="background-color: #F4D2E3;">
-                        <img src="images/plotter.png" alt="Плоттеры" class="w-full h-full object-contain">
+                        <div style="background-image: var(--img-plotter); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Плоттеры"></div>
                     </div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-semibold mb-2" style="color: #151A42;">Плоттеры</h3>
@@ -1026,27 +1058,27 @@
         <div class="container-custom">
             <div class="brand-scroll">
                 <!-- First set -->
-                <div class="brand-item"><img src="images/hp-logo.png" alt="HP" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/epson-logo.png" alt="Epson" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/canon-logo.png" alt="Canon" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/pantum-logo.png" alt="Pantum" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/kyocera-logo.png" alt="Kyocera" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/brother-logo.png" alt="Brother" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/xerox-logo.png" alt="Xerox" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/samsung-logo.png" alt="Samsung" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/oki-logo.png" alt="Oki" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/panasonic-logo.png" alt="Panasonic" style="height: var(--brand-logo-height);" class="object-contain"></div>
+                <div class="brand-item" style="background-image: var(--img-hp-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="HP"></div>
+                <div class="brand-item" style="background-image: var(--img-epson-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Epson"></div>
+                <div class="brand-item" style="background-image: var(--img-canon-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Canon"></div>
+                <div class="brand-item" style="background-image: var(--img-pantum-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Pantum"></div>
+                <div class="brand-item" style="background-image: var(--img-kyocera-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Kyocera"></div>
+                <div class="brand-item" style="background-image: var(--img-brother-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Brother"></div>
+                <div class="brand-item" style="background-image: var(--img-xerox-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Xerox"></div>
+                <div class="brand-item" style="background-image: var(--img-samsung-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Samsung"></div>
+                <div class="brand-item" style="background-image: var(--img-oki-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Oki"></div>
+                <div class="brand-item" style="background-image: var(--img-panasonic-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Panasonic"></div>
                 <!-- Second set for seamless loop -->
-                <div class="brand-item"><img src="images/hp-logo.png" alt="HP" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/epson-logo.png" alt="Epson" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/canon-logo.png" alt="Canon" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/pantum-logo.png" alt="Pantum" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/kyocera-logo.png" alt="Kyocera" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/brother-logo.png" alt="Brother" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/xerox-logo.png" alt="Xerox" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/samsung-logo.png" alt="Samsung" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/oki-logo.png" alt="Oki" style="height: var(--brand-logo-height);" class="object-contain"></div>
-                <div class="brand-item"><img src="images/panasonic-logo.png" alt="Panasonic" style="height: var(--brand-logo-height);" class="object-contain"></div>
+                <div class="brand-item" style="background-image: var(--img-hp-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="HP"></div>
+                <div class="brand-item" style="background-image: var(--img-epson-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Epson"></div>
+                <div class="brand-item" style="background-image: var(--img-canon-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Canon"></div>
+                <div class="brand-item" style="background-image: var(--img-pantum-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Pantum"></div>
+                <div class="brand-item" style="background-image: var(--img-kyocera-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Kyocera"></div>
+                <div class="brand-item" style="background-image: var(--img-brother-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Brother"></div>
+                <div class="brand-item" style="background-image: var(--img-xerox-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Xerox"></div>
+                <div class="brand-item" style="background-image: var(--img-samsung-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Samsung"></div>
+                <div class="brand-item" style="background-image: var(--img-oki-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Oki"></div>
+                <div class="brand-item" style="background-image: var(--img-panasonic-logo); background-size: contain; background-repeat: no-repeat; background-position: center;" role="img" aria-label="Panasonic"></div>
             </div>
         </div>
     </section>
@@ -1202,9 +1234,7 @@
                     <!-- Right Image Placeholder -->
                     <div class="text-center">
                         <div class="w-full max-w-md mx-auto h-80 bg-gray-200 rounded-lg flex items-center justify-content text-lg font-medium" style="color: #626262;">
-                            Изображение скидки
-                            <br>
-                            400x320px
+                            <div style="background-image: var(--img-printer-delivery); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Доставка принтеров"></div>
                         </div>
                     </div>
                 </div>
@@ -1601,10 +1631,8 @@
                 
                 <!-- Right Image -->
                 <div class="guarantee-image">
-                    <div class="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center font-medium" style="color: #626262;">
-                        Гарантийный талон
-                        <br>
-                        400x320px
+                    <div class="w-full h-80 rounded-lg flex items-center justify-center">
+                        <div style="background-image: var(--img-guarantee); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Гарантия"></div>
                     </div>
                 </div>
             </div>
@@ -1716,10 +1744,8 @@
                 
                 <!-- Right Image -->
                 <div class="contract-image">
-                    <div class="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center font-medium" style="color: #626262;">
-                        Договор на ремонт
-                        <br>
-                        400x320px
+                    <div class="w-full h-96 rounded-lg flex items-center justify-center">
+                        <div style="background-image: var(--img-contract); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Договор"></div>
                     </div>
                 </div>
             </div>

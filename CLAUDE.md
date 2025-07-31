@@ -68,6 +68,11 @@ copimatic/
   --bg-gray: #f9fafb;
   --success-green: #10B981;
   --warning-yellow: #d97706;
+  --brand-logo-height: 80px;
+  
+  /* Universal button variables */
+  --button-bg: #2089FF;
+  --button-bg-hover: #1d4ed8;
 }
 ```
 
@@ -102,9 +107,10 @@ copimatic/
 
 **Key Functions:**
 - `startCountdown()` - 24-hour countdown timer with automatic reset
-- `switchTab(tabName)` - Service tab switching with fade animations
+- `switchTab(tabName)` - Service tab switching with fade animations (includes spam-click protection)
 - `initSmoothScroll()` - Smooth scroll navigation for menu items
-- `initStickyHeader()` - Sticky header behavior management
+- `initStickyHeader()` - Sticky header behavior management (always fixed position)
+- `window.switchTab` - Global function exposed for onclick handlers in HTML
 - CTA handlers for `#forma` modal integration
 
 ### Current Implementation
@@ -145,9 +151,9 @@ The project is a complete single-page landing with all content directly embedded
 
 ### External Dependencies
 
-- **Tailwind CSS:** Latest version via CDN
-- **Google Fonts:** Manrope font family
-- **Remix Icons:** For UI icons (https://remixicon.com/)
+- **Tailwind CSS:** Latest version via CDN (`https://cdn.tailwindcss.com`)
+- **Google Fonts:** Manrope font family (weights: 300,400,500,600,700,800)
+- **Remix Icons:** For UI icons v4.0.0 (`https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css`)
 - **Tilda Modal System:** External `#forma` modal integration
 - **Tilda Footer:** External footer component integration
 
@@ -197,4 +203,12 @@ When modifying sections with dynamic content (brands, issues, services), referen
 - Inline all CSS within `<style>` tags in `index.html` for Tilda compatibility
 - Keep JavaScript modular and well-commented in `script.js`
 - Follow naming convention: descriptive classes without `t-` or `tn-` prefixes
+- Use CSS custom properties (variables) consistently for maintainability
+- Expose necessary JavaScript functions to `window` object for HTML onclick handlers
 - Test each component individually before integration
+
+**Animation and Interaction Patterns:**
+- Tab switching includes fade animations and spam-click protection (`isTabSwitching` flag)
+- Smooth scroll navigation for anchor links
+- Sticky header remains always visible (no hide/show on scroll)
+- All animations use CSS transitions for better performance
