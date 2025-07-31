@@ -29,6 +29,10 @@
             --success-green: #10B981;
             --warning-yellow: #d97706;
             --brand-logo-height: 80px;
+            
+            /* Универсальная переменная для фона кнопок */
+            --button-bg: #2089FF;
+            --button-bg-hover: #1d4ed8;
         }
         
         body, .container-custom, .card, .btn-cta, .equipment-card, .issue-card, .service-item, .contract-list, .guarantee-list, .coverage-list {
@@ -42,7 +46,7 @@
         }
         
         .btn-cta {
-            background-color: var(--accent-orange) !important;
+            background-color: var(--button-bg) !important;
             color: white !important;
             padding: 12px 24px !important;
             border-radius: 8px !important;
@@ -56,7 +60,7 @@
         }
         
         .btn-cta:hover {
-            background-color: var(--accent-orange-dark) !important;
+            background-color: var(--button-bg-hover) !important;
             transform: translateY(-2px) !important;
             box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
         }
@@ -290,14 +294,14 @@
         }
 
         .tab-button.active {
-            background-color: #2089FF !important;
+            background-color: var(--button-bg) !important;
             color: white !important;
             box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3) !important;
         }
 
         /* Специальные стили для разных табов */
         .tab-button[onclick="switchTab('printers')"].active {
-            background-color: #2089FF !important;
+            background-color: var(--button-bg) !important;
             box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3) !important;
         }
 
@@ -313,7 +317,7 @@
 
         /* Ховер эффекты для неактивных табов */
         .tab-button[onclick*="printers"]:hover:not(.active) {
-            background-color: #2089FF !important;
+            background-color: var(--button-bg) !important;
             color: white !important;
             transform: translateY(-2px) !important;
             box-shadow: 0 10px 25px rgba(32, 137, 255, 0.3) !important;
@@ -335,7 +339,7 @@
 
         /* Ховер эффекты для активных табов - более темные оттенки */
         .tab-button[onclick*="printers"]:hover.active {
-            background-color: #1d4ed8 !important;
+            background-color: var(--button-bg-hover) !important;
         }
 
         .tab-button[onclick*="mfu"]:hover.active {
@@ -424,7 +428,7 @@
             display: none !important;
             width: 100% !important;
             padding: 16px !important;
-            background-color: var(--primary-blue) !important;
+            background-color: var(--button-bg) !important;
             color: white !important;
             border: none !important;
             border-radius: 0 0 8px 8px !important;
@@ -435,7 +439,7 @@
         }
 
         .show-more-btn:hover {
-            background-color: var(--primary-blue-dark) !important;
+            background-color: var(--button-bg-hover) !important;
             transform: translateY(-2px) !important;
             box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
         }
@@ -459,9 +463,9 @@
             }
 
             .tab-button.active {
-                background-color: var(--primary-blue) !important;
+                background-color: var(--button-bg) !important;
                 color: white !important;
-                border-bottom-color: var(--primary-blue) !important;
+                border-bottom-color: var(--button-bg) !important;
                 box-shadow: 0 0 15px rgba(32, 137, 255, 0.3) !important;
             }
 
@@ -816,7 +820,7 @@
         }
 
         .show-issues-btn:hover {
-            background-color: var(--primary-blue);
+            background-color: var(--button-bg);
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4);
@@ -910,7 +914,7 @@
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 mb-20">
-                        <a href="#forma" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white rounded-lg transition-all duration-300 shadow-lg transform" style="background-color: #2089FF; box-shadow: 0 0 20px rgba(32, 137, 255, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(32, 137, 255, 0.4)'; this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 20px rgba(32, 137, 255, 0.3)'; this.style.backgroundColor='#2089FF';">
+                        <a href="#forma" class="btn-cta inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white rounded-lg transition-all duration-300 shadow-lg transform">
                             <i class="ri-tools-line mr-2"></i>
                             Бесплатная диагностика
                         </a>
