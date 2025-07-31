@@ -207,6 +207,13 @@
             font-weight: 500;
             font-size: 14px;
             flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .brand-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
         
         /* Issues grid styles */
@@ -791,29 +798,29 @@
 
         /* Hidden issues styles */
         .hidden-issues {
-            display: none;
+            display: none !important;
         }
 
         .show-issues-btn {
-            display: inline-flex !important;
-            align-items: center !important;
-            padding: 16px 24px !important;
-            background-color: transparent !important;
-            color: var(--primary-blue) !important;
-            border: 1px solid var(--primary-blue) !important;
-            border-radius: 12px !important;
-            font-weight: 600 !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            margin-top: 24px !important;
-            font-size: 16px !important;
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 24px;
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+            font-size: 16px;
         }
 
         .show-issues-btn:hover {
-            background-color: var(--primary-blue) !important;
-            color: white !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4);
         }
 
         /* Phone links styles */
@@ -1150,7 +1157,7 @@
                     <div class="text-lg font-bold" style="color: #151A42;">от 600 руб</div>
                 </a>
                 
-                <a href="#forma" class="issue-card">
+                <a href="#forma" class="issue-card hidden-issues">
                     <div class="issue-icon" style="background-color: #EC4899; box-shadow: 0 0 0 10px rgba(236, 72, 153, 0.1);">
                         <i class="ri-blur-off-line"></i>
                     </div>

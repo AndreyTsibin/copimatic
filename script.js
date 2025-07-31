@@ -32,56 +32,102 @@ document.addEventListener('DOMContentLoaded', function() {
         header.style.transition = 'none';
     }
     
-    // Service tabs switching functionality
+    // Service tabs switching functionality with animations
+    let isTabSwitching = false;
+    
     function switchTab(tabName) {
-        // Hide all tab contents
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(content => {
-            content.classList.remove('active');
-        });
+        // Prevent spam clicks during animation
+        if (isTabSwitching) return;
         
-        // Remove active class from all tabs
+        const selectedContent = document.getElementById('tab-' + tabName);
+        const selectedTab = document.querySelector(`button[onclick*="${tabName}"]`);
+        
+        // If already active, do nothing
+        if (selectedContent && selectedContent.classList.contains('active')) return;
+        
+        isTabSwitching = true;
+        
+        // Get current active content
+        const currentActive = document.querySelector('.tab-content.active');
+        
+        if (currentActive) {
+            // Add fade-out class to current content
+            currentActive.classList.add('fade-out');
+            
+            // After animation, switch content
+            setTimeout(() => {
+                // Hide all tab contents
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach(content => {
+                    content.classList.remove('active', 'fade-out');
+                });
+                
+                // Show selected tab content
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+                
+                isTabSwitching = false;
+            }, 200);
+        } else {
+            // First load - no animation needed
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            isTabSwitching = false;
+        }
+        
+        // Update tab buttons immediately
         const tabs = document.querySelectorAll('.tab-button');
         tabs.forEach(tab => {
             tab.classList.remove('active');
         });
         
-        // Show selected tab content
-        const selectedContent = document.getElementById('tab-' + tabName);
-        if (selectedContent) {
-            selectedContent.classList.add('active');
-        }
-        
-        // Add active class to selected tab button
-        const selectedTab = document.querySelector(`button[onclick*="${tabName}"]`);
         if (selectedTab) {
             selectedTab.classList.add('active');
         }
     }
     
-    // Countdown timer functionality
+    // Countdown timer functionality - 3 hours from first visit
     function startCountdown() {
         const countdownElement = document.getElementById('countdown');
         if (!countdownElement) return;
         
-        // Set countdown to 24 hours from now
-        const now = new Date().getTime();
-        const countdownTime = now + (24 * 60 * 60 * 1000);
+        // Check if we have a stored start time
+        let startTime = localStorage.getItem('promoStartTime');
+        
+        if (!startTime) {
+            // First visit - store current time with timezone
+            startTime = new Date().getTime();
+            localStorage.setItem('promoStartTime', startTime);
+        } else {
+            startTime = parseInt(startTime);
+        }
+        
+        // Set countdown to 3 hours from first visit
+        const countdownTime = startTime + (3 * 60 * 60 * 1000);
         
         const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = countdownTime - now;
             
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            if (distance <= 0) {
+                clearInterval(timer);
+                countdownElement.innerHTML = "Акция завершена";
+                return;
+            }
+            
+            const hours = Math.floor(distance / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
             countdownElement.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            
-            if (distance < 0) {
-                clearInterval(timer);
-                countdownElement.innerHTML = "Акция завершена";
-            }
         }, 1000);
     }
     
@@ -89,6 +135,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initStickyHeader();
     startCountdown();
+    
+    // Initialize issues display - ensure first 4 are visible, rest are hidden
+    const allIssueCards = document.querySelectorAll('.issue-card');
+    allIssueCards.forEach((card, index) => {
+        if (index >= 4) {
+            card.classList.add('hidden-issues');
+        } else {
+            card.classList.remove('hidden-issues');
+        }
+    });
     
     // Mobile services toggle functionality
     function toggleServices(tabName) {
@@ -118,9 +174,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Issues toggle functionality
+    function toggleIssues() {
+        const hiddenIssues = document.querySelectorAll('.issue-card.hidden-issues');
+        const showButton = document.getElementById('show-issues-btn');
+        const buttonText = showButton.querySelector('i').nextSibling;
+        const buttonIcon = showButton.querySelector('i');
+        
+        // Check if issues are currently hidden
+        const isHidden = hiddenIssues.length > 0;
+        
+        if (isHidden) {
+            // Show hidden issues - remove hidden-issues class
+            hiddenIssues.forEach(issue => {
+                issue.classList.remove('hidden-issues');
+            });
+            buttonText.textContent = ' Скрыть неисправности';
+            buttonIcon.className = 'ri-arrow-up-line mr-2';
+        } else {
+            // Hide issues - find all issue cards and hide the ones that should be hidden
+            const allIssueCards = document.querySelectorAll('.issue-card');
+            // Keep first 4 cards visible, hide the rest
+            allIssueCards.forEach((issue, index) => {
+                if (index >= 4) {
+                    issue.classList.add('hidden-issues');
+                }
+            });
+            buttonText.textContent = ' Показать все неисправности';
+            buttonIcon.className = 'ri-arrow-down-line mr-2';
+        }
+    }
+    
     // Make functions globally available
     window.switchTab = switchTab;
     window.toggleServices = toggleServices;
+    window.toggleIssues = toggleIssues;
     
     // Mobile menu toggle functionality
     window.toggleMobileMenu = function() {
