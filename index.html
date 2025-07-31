@@ -569,6 +569,13 @@
             }
         }
 
+        /* Rating blocks styles - base styles for all screens */
+        .rating-blocks {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+
         /* Fix hero buttons height on small screens (320px - 425px) */
         @media (min-width: 320px) and (max-width: 425px) {
             .hero-buttons-1024 a {
@@ -580,19 +587,10 @@
                 justify-content: center !important;
             }
             
-            /* Rating blocks styles */
+            /* Rating blocks responsive - compact styles for small screens */
             .rating-blocks {
-                display: flex;
-                flex-direction: row;
-                gap: 24px;
-            }
-            
-            /* Rating blocks responsive - compact row on small screens */
-            @media (min-width: 320px) and (max-width: 425px) {
-                .rating-blocks {
-                    flex-direction: row !important;
-                    gap: 12px !important;
-                }
+                flex-direction: row !important;
+                gap: 12px !important;
             }
             
             /* Rating blocks inner elements on small screens */
