@@ -583,22 +583,23 @@
             /* Rating blocks styles */
             .rating-blocks {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 gap: 24px;
             }
             
-            /* Rating blocks responsive - one line on small screens */
+            /* Rating blocks mobile - column layout for very small screens */
+            @media (min-width: 426px) and (max-width: 639px) {
+                .rating-blocks {
+                    flex-direction: column;
+                    gap: 16px;
+                }
+            }
+            
+            /* Rating blocks responsive - compact row on small screens */
             @media (min-width: 320px) and (max-width: 425px) {
                 .rating-blocks {
                     flex-direction: row !important;
                     gap: 12px !important;
-                }
-            }
-            
-            @media (min-width: 640px) {
-                .rating-blocks {
-                    flex-direction: row;
-                    gap: 24px;
                 }
             }
             
