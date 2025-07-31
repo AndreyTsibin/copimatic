@@ -41,23 +41,23 @@
         }
         
         .btn-cta {
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(32, 137, 255, 0.3);
+            background-color: var(--accent-orange) !important;
+            color: white !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            cursor: pointer !important;
+            box-shadow: 0 0 20px rgba(32, 137, 255, 0.3) !important;
         }
         
         .btn-cta:hover {
-            background-color: var(--accent-orange-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4);
+            background-color: var(--accent-orange-dark) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
         }
         
         .card {
@@ -115,22 +115,23 @@
         
         /* Equipment cards */
         .equipment-card {
-            background-color: var(--bg-white);
-            border-radius: 12px;
-            border: 1px solid #E6E6E6;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            text-decoration: none;
-            display: block;
-            color: inherit;
+            background-color: var(--bg-white) !important;
+            border-radius: 12px !important;
+            border: 1px solid #E6E6E6 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+            transition: all 0.3s ease !important;
+            overflow: hidden !important;
+            text-decoration: none !important;
+            display: block !important;
+            color: inherit !important;
         }
         
         .equipment-card:hover {
-            border: 1px solid white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            color: inherit;
-            text-decoration: none;
-            transform: translateY(-2px);
+            border: 1px solid white !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            transform: translateY(-2px) !important;
         }
         
         .equipment-placeholder {
@@ -210,24 +211,25 @@
         
         /* Issues grid styles */
         .issue-card {
-            background-color: var(--bg-white);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #E6E6E6;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            cursor: pointer;
-            text-align: center;
+            background-color: var(--bg-white) !important;
+            border-radius: 12px !important;
+            padding: 20px !important;
+            border: 1px solid #E6E6E6 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+            color: inherit !important;
+            display: block !important;
+            cursor: pointer !important;
+            text-align: center !important;
         }
         
         .issue-card:hover {
-            border: 1px solid white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            color: inherit;
-            text-decoration: none;
-            transform: translateY(-2px);
+            border: 1px solid white !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            transform: translateY(-2px) !important;
         }
         
         .issue-icon {
@@ -246,6 +248,7 @@
         .discount-section {
             background-color: #F6FAFE;
             border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .countdown-timer #countdown {
@@ -266,36 +269,105 @@
         }
 
         .tab-button {
-            padding: 12px 24px;
-            border: none;
-            background: transparent;
-            font-size: 16px;
-            font-weight: 600;
-            color: #626262;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            flex: 1;
-            max-width: 200px;
+            padding: 12px 24px !important;
+            border: none !important;
+            background: transparent !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #626262 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            border-radius: 8px !important;
+            flex: 1 !important;
+            max-width: 200px !important;
+            box-shadow: 0 0 10px rgba(98, 98, 98, 0.2) !important;
         }
 
         .tab-button.active {
-            background-color: #2089FF;
-            color: white;
-            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3);
+            background-color: #2089FF !important;
+            color: white !important;
+            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3) !important;
         }
 
-        .tab-button:hover:not(.active) {
-            background-color: rgba(32, 137, 255, 0.1);
-            color: #2089FF;
+        /* Специальные стили для разных табов */
+        .tab-button[onclick="switchTab('printers')"].active {
+            background-color: #2089FF !important;
+            box-shadow: 0 2px 8px rgba(32, 137, 255, 0.3) !important;
+        }
+
+        .tab-button[onclick="switchTab('mfu')"].active {
+            background-color: #10B981 !important;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+        }
+
+        .tab-button[onclick="switchTab('plotters')"].active {
+            background-color: #EC4899 !important;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3) !important;
+        }
+
+        /* Ховер эффекты для неактивных табов */
+        .tab-button[onclick*="printers"]:hover:not(.active) {
+            background-color: #2089FF !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.3) !important;
+        }
+
+        .tab-button[onclick*="mfu"]:hover:not(.active) {
+            background-color: #10B981 !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+        }
+
+        .tab-button[onclick*="plotters"]:hover:not(.active) {
+            background-color: #EC4899 !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3) !important;
+        }
+
+        /* Ховер эффекты для активных табов - более темные оттенки */
+        .tab-button[onclick*="printers"]:hover.active {
+            background-color: #1d4ed8 !important;
+        }
+
+        .tab-button[onclick*="mfu"]:hover.active {
+            background-color: #059669 !important;
+        }
+
+        .tab-button[onclick*="plotters"]:hover.active {
+            background-color: #db2777 !important;
+        }
+
+        .tabs-container {
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
         }
 
         .tab-content {
-            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            will-change: opacity, transform;
         }
 
         .tab-content.active {
-            display: block;
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .tab-content.fade-out {
+            opacity: 0;
+            transform: translateY(-10px);
         }
 
         .services-grid {
@@ -305,15 +377,15 @@
         }
 
         .service-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 20px;
-            border-bottom: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 16px 20px !important;
+            border-bottom: 1px solid #e5e7eb !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+            color: inherit !important;
         }
 
         .service-item:nth-child(odd) {
@@ -321,10 +393,10 @@
         }
 
         .service-item:hover {
-            background-color: #f9fafb;
-            transform: translateX(5px);
-            color: inherit;
-            text-decoration: none;
+            background-color: #f9fafb !important;
+            transform: translateX(5px) !important;
+            color: inherit !important;
+            text-decoration: none !important;
         }
 
         .service-item:last-child {
@@ -332,7 +404,7 @@
         }
 
         .service-name {
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-primary);
         }
 
@@ -343,20 +415,23 @@
         }
 
         .show-more-btn {
-            display: none;
-            width: 100%;
-            padding: 16px;
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            border-radius: 0 0 8px 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            display: none !important;
+            width: 100% !important;
+            padding: 16px !important;
+            background-color: var(--primary-blue) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 0 0 8px 8px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 0 15px rgba(32, 137, 255, 0.3) !important;
         }
 
         .show-more-btn:hover {
-            background-color: var(--primary-blue-dark);
+            background-color: var(--primary-blue-dark) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
         }
 
         .service-item.hidden-mobile {
@@ -371,16 +446,26 @@
             }
 
             .tab-button {
-                margin: 0;
-                border-bottom: 1px solid #e5e7eb;
-                border-radius: 0;
-                text-align: left;
+                margin: 0 !important;
+                border-bottom: 1px solid #e5e7eb !important;
+                border-radius: 0 !important;
+                text-align: left !important;
             }
 
             .tab-button.active {
-                background-color: var(--primary-blue);
-                color: white;
-                border-bottom-color: var(--primary-blue);
+                background-color: var(--primary-blue) !important;
+                color: white !important;
+                border-bottom-color: var(--primary-blue) !important;
+                box-shadow: 0 0 15px rgba(32, 137, 255, 0.3) !important;
+            }
+
+            .tabs-container {
+                min-height: 300px;
+            }
+
+            .tab-content {
+                transform: translateY(15px);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
             .services-grid {
@@ -396,7 +481,7 @@
             }
 
             .show-more-btn {
-                display: block;
+                display: block !important;
             }
 
             .service-item:hover {
@@ -527,6 +612,19 @@
         .coverage-map iframe {
             border-radius: 8px;
         }
+        
+        /* Service area cards styles */
+        .service-area-card {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .service-area-card:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid rgba(32, 137, 255, 0.2) !important;
+        }
 
         /* Contract section styles */
         .contract-section {
@@ -622,7 +720,7 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 800;
             color: #2089FF;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -697,25 +795,37 @@
         }
 
         .show-issues-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 16px 24px;
-            background-color: transparent;
-            color: var(--primary-blue);
-            border: 1px solid var(--primary-blue);
-            border-radius: 12px;
-            font-weight: 400;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 24px;
-            font-size: 16px;
+            display: inline-flex !important;
+            align-items: center !important;
+            padding: 16px 24px !important;
+            background-color: transparent !important;
+            color: var(--primary-blue) !important;
+            border: 1px solid var(--primary-blue) !important;
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            margin-top: 24px !important;
+            font-size: 16px !important;
         }
 
         .show-issues-btn:hover {
-            background-color: var(--primary-blue);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(32, 137, 255, 0.3);
+            background-color: var(--primary-blue) !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(32, 137, 255, 0.4) !important;
+        }
+
+        /* Phone links styles */
+        a[href^="tel:"] {
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+        }
+
+        a[href^="tel:"]:hover {
+            color: #2089FF !important;
+            transform: translateY(-1px) !important;
         }
     </style>
 </head>
@@ -744,10 +854,11 @@
                 <!-- Phone and CTA -->
                 <div class="flex items-center space-x-6">
                     <div class="hidden lg:block text-right">
-                        <div class="text-lg font-semibold text-gray-900">8&nbsp;(495)&nbsp;138-39-22</div>
+                        <a href="tel:84951383922" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors cursor-pointer">8&nbsp;(495)&nbsp;138-39-22</a>
                         <div class="text-sm text-gray-500">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                     </div>
-                    <a href="#forma" class="btn-cta">
+                    <a href="#forma" class="btn-cta inline-flex items-center">
+                        <i class="ri-customer-service-line mr-2"></i>
                         Заказать звонок
                     </a>
                 </div>
@@ -765,7 +876,7 @@
                     <a href="#guarantee" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Гарантия</a>
                     <a href="#contacts" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Контакты</a>
                     <div class="px-4 py-2 border-t">
-                        <div class="text-lg font-semibold text-gray-900">8&nbsp;(495)&nbsp;138-39-22</div>
+                        <a href="tel:84951383922" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors cursor-pointer">8&nbsp;(495)&nbsp;138-39-22</a>
                         <div class="text-sm text-gray-500">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                     </div>
                 </div>
@@ -788,16 +899,16 @@
                         Ремонт оргтехники любой сложности в Москве
                     </h1>
                     <div class="text-lg mb-8" style="color: #626262; font-size: 18px; line-height: 1.6;">
-                        <p class="mb-4">Ремонтируем бренды любой сложности по низким ценам с официальной гарантией до 2 лет — работаем быстро, честно!</p>
+                        <p class="mb-4">Ремонтируем бренды любой сложности по низким ценам с гарантией до 1 года — работаем быстро и честно!</p>
                     </div>
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 mb-16">
-                        <a href="#forma" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105" style="background-color: #2089FF; box-shadow: 0 4px 15px rgba(32, 137, 255, 0.3);">
+                        <a href="#forma" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white rounded-lg transition-all duration-300 shadow-lg transform" style="background-color: #2089FF; box-shadow: 0 0 20px rgba(32, 137, 255, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(32, 137, 255, 0.4)'; this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 20px rgba(32, 137, 255, 0.3)'; this.style.backgroundColor='#2089FF';">
                             <i class="ri-tools-line mr-2"></i>
                             Бесплатная диагностика
                         </a>
-                        <a href="tel:84951383922" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg border-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105" style="color: white; border-color: #34C759; background: #34C759; box-shadow: 0 2px 8px rgba(52, 199, 89, 0.3);">
+                        <a href="tel:84951383922" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg border-2 transition-all duration-300 transform" style="color: white; border-color: #34C759; background: #34C759; box-shadow: 0 0 15px rgba(52, 199, 89, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(52, 199, 89, 0.4)'; this.style.backgroundColor='#10B981';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 15px rgba(52, 199, 89, 0.3)'; this.style.backgroundColor='#34C759';">
                             <i class="ri-phone-line mr-2"></i>
                             8 (495) 138-39-22
                         </a>
@@ -806,7 +917,7 @@
                     <!-- Rating Blocks -->
                     <div class="flex flex-col sm:flex-row gap-6">
                         <!-- Yandex Rating -->
-                        <div class="flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-lg">
+                        <div class="flex items-center gap-3">
                             <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold">
                                 Я
                             </div>
@@ -820,7 +931,7 @@
                         </div>
                         
                         <!-- 2GIS Rating -->
-                        <div class="flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-lg">
+                        <div class="flex items-center gap-3">
                             <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold">
                                 2Г
                             </div>
@@ -855,10 +966,10 @@
             <div class="text-center mb-12">
                 <div class="section-subtitle equipment center">
                     <i class="ri-settings-3-line"></i>
-                    Оборудование
+                    Тип оборудования
                 </div>
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
-                    Что сломалось?
+                    Что у вас сломалось?
                 </h2>
                 <p class="text-lg max-w-2xl mx-auto" style="color: #626262;">
                     Выберите тип оборудования и&nbsp;получите быструю помощь
@@ -946,7 +1057,7 @@
             <div class="text-center mb-12">
                 <div class="section-subtitle issues center">
                     <i class="ri-tools-line"></i>
-                    Проблемы
+                    Решение проблем
                 </div>
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="color: #151A42;">
                     Частые неисправности
@@ -1075,7 +1186,7 @@
                         
                         <!-- Timer -->
                         <div class="mb-6">
-                            <div class="text-sm font-medium mb-2" style="color: #626262;">Осталось времени:</div>
+                            <div class="text-sm font-medium mb-2" style="color: #626262;">До конца акции:</div>
                             <div id="countdown" class="text-3xl lg:text-4xl font-bold" style="color: #151A42;">
                                 23:59:45
                             </div>
@@ -1127,7 +1238,7 @@
             </div>
             
             <!-- Tab Content -->
-            <div class="bg-white rounded-lg overflow-hidden" style="border: 1px solid #E6E6E6;">
+            <div class="bg-white rounded-lg overflow-hidden tabs-container" style="border: 1px solid #E6E6E6; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
                 <!-- Принтеры Tab -->
                 <div id="tab-printers" class="tab-content active">
                     <div class="services-grid">
@@ -1462,10 +1573,10 @@
                 <div class="guarantee-benefits text-left">
                     <div class="section-subtitle guarantee">
                         <i class="ri-shield-check-line"></i>
-                        Надёжность
+                        Ваше спокойствие
                     </div>
                     <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
-                        Гарантия до 2 лет на все работы
+                        Гарантия до 1 года на все выполненные работы
                     </h2>
                     <p class="text-lg mb-6" style="color: #626262;">
                         Мы настолько уверены в качестве нашей работы, что даем расширенную гарантию. Это не просто обещание — это официальное обязательство перед каждым клиентом.
@@ -1483,7 +1594,7 @@
                     
                     <a href="#forma" class="btn-cta inline-flex items-center">
                         <i class="ri-shield-check-line mr-2"></i>
-                        Получить гарантию
+                        Заказать ремонт
                     </a>
                 </div>
                 
@@ -1505,7 +1616,7 @@
             <div class="text-center mb-12">
                 <div class="section-subtitle coverage center">
                     <i class="ri-map-pin-line"></i>
-                    География
+                    Срочная помощь
                 </div>
                 <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
                     Выезд по Москве и Московской области
@@ -1530,7 +1641,7 @@
             
             <!-- Service Areas Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="bg-gray-50 p-4 rounded-lg text-center service-area-card">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #2089FF;">
                         <i class="ri-map-pin-line text-xl"></i>
                     </div>
@@ -1538,7 +1649,7 @@
                     <p class="text-sm" style="color: #626262;">Полное покрытие столицы</p>
                 </div>
                 
-                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="bg-gray-50 p-4 rounded-lg text-center service-area-card">
                     <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #10B981;">
                         <i class="ri-time-line text-xl"></i>
                     </div>
@@ -1546,7 +1657,7 @@
                     <p class="text-sm" style="color: #626262;">Быстрая реакция на заявку</p>
                 </div>
                 
-                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="bg-gray-50 p-4 rounded-lg text-center service-area-card">
                     <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #8B5CF6;">
                         <i class="ri-group-line text-xl"></i>
                     </div>
@@ -1554,7 +1665,7 @@
                     <p class="text-sm" style="color: #626262;">Нет очередей и ожидания</p>
                 </div>
                 
-                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="bg-gray-50 p-4 rounded-lg text-center service-area-card">
                     <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3" style="color: #F97316;">
                         <i class="ri-road-map-line text-xl"></i>
                     </div>
@@ -1573,13 +1684,13 @@
                 <div class="contract-benefits text-left">
                     <div class="section-subtitle contract">
                         <i class="ri-file-text-line"></i>
-                        Легальность
+                        Надежность
                     </div>
                     <h2 class="text-3xl lg:text-4xl font-bold mb-6" style="color: #151A42;">
-                        Работаем официально по договору
+                        Работаем по договору
                     </h2>
                     <p class="text-lg mb-6" style="color: #626262;">
-                        Прозрачное сотрудничество с официальным оформлением всех работ. Фиксированные цены, полная отчетность и надежные гарантии.
+                        Прозрачное сотрудничество с официальным оформлением всех работ. Фиксированные цены, полная отчетность и надежные гарантии на все выполненные работы.
                     </p>
                     
                     <h3 class="text-xl font-semibold mb-4" style="color: #151A42;">
@@ -1634,7 +1745,7 @@
                         <div class="flex items-center gap-4">
                             <i class="ri-phone-line text-2xl" style="color: #2089FF;"></i>
                             <div>
-                                <div class="text-lg font-semibold" style="color: #151A42;">8&nbsp;(495)&nbsp;138-39-22</div>
+                                <a href="tel:84951383922" class="text-lg font-semibold hover:text-blue-600 transition-colors cursor-pointer" style="color: #151A42;">8&nbsp;(495)&nbsp;138-39-22</a>
                                 <div style="color: #626262;">Ежедневно с&nbsp;7:00 до&nbsp;23:00</div>
                             </div>
                         </div>
