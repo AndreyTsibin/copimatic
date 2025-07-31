@@ -94,24 +94,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Countdown timer functionality - 3 hours from first visit
+    // Countdown timer functionality - 1 hour from page load (resets on refresh)
     function startCountdown() {
         const countdownElement = document.getElementById('countdown');
         if (!countdownElement) return;
         
-        // Check if we have a stored start time
-        let startTime = localStorage.getItem('promoStartTime');
-        
-        if (!startTime) {
-            // First visit - store current time with timezone
-            startTime = new Date().getTime();
-            localStorage.setItem('promoStartTime', startTime);
-        } else {
-            startTime = parseInt(startTime);
-        }
-        
-        // Set countdown to 3 hours from first visit
-        const countdownTime = startTime + (3 * 60 * 60 * 1000);
+        // Start countdown from current time + 1 hour (resets on every page load)
+        const startTime = new Date().getTime();
+        const countdownTime = startTime + (1 * 60 * 60 * 1000); // 1 hour in milliseconds
         
         const timer = setInterval(function() {
             const now = new Date().getTime();
@@ -119,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (distance <= 0) {
                 clearInterval(timer);
-                countdownElement.innerHTML = "Акция завершена";
+                countdownElement.innerHTML = "00:00:00";
                 return;
             }
             

@@ -569,18 +569,145 @@
             }
         }
 
+        /* Fix hero buttons height on small screens (320px - 425px) */
+        @media (min-width: 320px) and (max-width: 425px) {
+            .hero-buttons-1024 a {
+                min-height: 48px !important;
+                padding: 12px 16px !important;
+                line-height: 1.2 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            /* Rating blocks styles */
+            .rating-blocks {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            /* Rating blocks responsive - one line on small screens */
+            @media (min-width: 320px) and (max-width: 425px) {
+                .rating-blocks {
+                    flex-direction: row !important;
+                    gap: 12px !important;
+                }
+            }
+            
+            @media (min-width: 640px) {
+                .rating-blocks {
+                    flex-direction: row;
+                    gap: 24px;
+                }
+            }
+            
+            /* Rating blocks inner elements on small screens */
+            .rating-blocks .flex.items-center.gap-3 {
+                gap: 8px !important;
+            }
+            
+            .rating-blocks .w-12.h-12 {
+                width: 32px !important;
+                height: 32px !important;
+            }
+            
+            .rating-blocks .flex.items-center.gap-1.mb-1 span {
+                font-size: 12px !important;
+            }
+            
+            .rating-blocks .flex.items-center.gap-1.mb-1 .font-semibold {
+                font-size: 14px !important;
+                margin-left: 4px !important;
+            }
+            
+            .rating-blocks .text-sm {
+                font-size: 10px !important;
+            }
+            
+            /* Fix show issues button to fit in one line */
+            .show-issues-btn {
+                padding: 12px 16px !important;
+                font-size: 14px !important;
+                white-space: nowrap !important;
+            }
+            
+            /* Fix discount section container and button */
+            .bg-white.rounded-3xl.p-8 {
+                padding: 16px !important;
+                border-radius: 12px !important;
+            }
+            
+            .discount-section .btn-cta {
+                padding: 12px 16px !important;
+                font-size: 14px !important;
+                white-space: nowrap !important;
+            }
+            
+            .discount-section h2 {
+                font-size: 20px !important;
+                line-height: 1.2 !important;
+                margin-bottom: 16px !important;
+            }
+            
+            .discount-section p {
+                font-size: 14px !important;
+                margin-bottom: 16px !important;
+            }
+            
+            .discount-section #countdown {
+                font-size: 24px !important;
+            }
+            
+            /* Fix discount section image size and rounding */
+            .discount-section .w-full.max-w-md.mx-auto.h-80 {
+                height: 200px !important;
+                overflow: hidden !important;
+            }
+            
+            /* Make CTA buttons full width in guarantee, contract and contacts sections */
+            .guarantee-section .btn-cta,
+            .contract-section .btn-cta,
+            section[id="contacts"] .btn-cta {
+                width: 100% !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+            
+            /* Remove bottom padding from sections with this class */
+            .no-bottom-padding-mobile {
+                padding-bottom: 0 !important;
+            }
+            
+            /* Hide coverage map on small screens */
+            .coverage-map-full {
+                display: none !important;
+            }
+            
+            /* Increase contacts map height by 30% */
+            section[id="contacts"] .flex.items-stretch > div {
+                min-height: 400px !important;
+            }
+        }
+
         /* Mobile tabs responsive */
         @media (max-width: 424px) {
             .services-tabs {
                 flex-direction: column;
                 border-bottom: none;
+                width: 100%;
+                padding: 4px;
             }
 
             .tab-button {
                 margin: 0;
                 border-bottom: 1px solid #e5e7eb;
-                border-radius: 0;
-                text-align: left;
+                border-radius: 8px;
+                text-align: center;
+                width: 100%;
+                max-width: none;
+                padding: 12px 16px;
+                font-size: 14px;
             }
 
 
@@ -1049,7 +1176,7 @@
     </header>
     
     <!-- Hero Section -->
-    <section class="section-spacing relative bg-white">
+    <section class="section-spacing relative bg-white no-bottom-padding-mobile">
         <div class="container-custom">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Content column -->
@@ -1079,7 +1206,7 @@
                     </div>
                     
                     <!-- Rating Blocks -->
-                    <div class="flex flex-col sm:flex-row gap-6">
+                    <div class="rating-blocks">
                         <!-- Yandex Rating -->
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
@@ -1353,11 +1480,9 @@
                         </a>
                     </div>
                     
-                    <!-- Right Image Placeholder -->
+                    <!-- Right Image -->
                     <div class="text-center">
-                        <div class="w-full max-w-md mx-auto h-80 bg-gray-200 rounded-lg flex items-center justify-content text-lg font-medium" style="color: #626262;">
-                            <div style="background-image: var(--img-printer-delivery); background-size: contain; background-repeat: no-repeat; background-position: center;" class="w-full h-full" role="img" aria-label="Доставка принтеров"></div>
-                        </div>
+                        <div style="background-image: var(--img-printer-delivery); background-size: cover; background-repeat: no-repeat; background-position: center;" class="w-full max-w-md mx-auto h-80 rounded-lg" role="img" aria-label="Доставка принтеров"></div>
                     </div>
                 </div>
             </div>
